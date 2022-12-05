@@ -1,8 +1,11 @@
 from django.db import models
 from authentication.models import User
 
+# Create your models here.
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     deliver_date = models.DateField()
-
-# Create your models here.
+    status = models.CharField(max_length=32)
+    total_price = models.IntegerField()
+    total_work_time = models.IntegerField()
+    notes = models.TextField()
