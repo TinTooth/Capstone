@@ -5,4 +5,4 @@ from .models import CakeOption
 class CakeOptionSerializer(serializers.ModelSerializer):
     class Meta: 
         model = CakeOption
-        fields = ['type','description']
+        fields = ['id','type','description']

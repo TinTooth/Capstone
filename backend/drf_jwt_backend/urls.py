@@ -19,7 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
-    path('api/cars/', include('cars.urls')),
     path('api/products/',include('products.urls')),
-    path('api/products/options',include('cake_options.urls'))
+    path('api/products/options/',include('cake_options.urls')),
+    path('api/order/<int:order_pk>/items/',include('order_items.urls'))
 ]

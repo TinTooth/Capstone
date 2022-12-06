@@ -31,17 +31,17 @@ def create_product(request):
 def manage_product(request,pk):
     product = get_object_or_404(Product,pk=pk)
     if request.method == 'GET' and request.user.is_staff == True:
-        print('GetRequest')
+    
         serializer = ProductSerializer(product)
         return Response(serializer.data, status=status.HTTP_200_OK)
     if request.method == 'PUT' and request.user.is_staff == True:
-        print('PutRequest')
+      
         serializer = ProductSerializer(product,data = request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     if request.method == 'DELETE' and request.user.is_staff == True:
-        print('DeleteRequest')
+       
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
