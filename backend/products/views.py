@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from .models import Product
 from .serializers import ProductSerializer
@@ -14,3 +14,14 @@ def get_all_products(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many = True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST','PUT'])
+@permission_classes([IsAdminUser])
+def manage_product(request):
+    if request.method == 'POST':
+        serializer = ProductSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
