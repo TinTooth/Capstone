@@ -4,7 +4,7 @@ from django.db import models
 class Product(models.Model):
     type = models.CharField(max_length=32)
     name = models.CharField(max_length=255)
-    price = models.IntegerField()
+    price = models.CharField(max_length=32)
     work_time = models.FloatField()
     serves = models.CharField(max_length=32)
     description = models.TextField()

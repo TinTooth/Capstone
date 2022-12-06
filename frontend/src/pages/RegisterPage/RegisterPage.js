@@ -10,6 +10,7 @@ const RegisterPage = () => {
     password: "",
     firstName: "",
     lastName: "",
+    is_staff: false
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
