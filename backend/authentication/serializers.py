@@ -12,9 +12,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # for any additional fields you'd like to add to the JWT sent back in response
         # add below using the token["field name"] = user.name_of_property
         # token["is_student"] = user.is_student
-
+        token["is_customer"] = user.is_customer
         token["username"] = user.username
         token["first_name"] = user.first_name
+        token["is_staff"] = user.is_staff
 
         return token
 
@@ -31,7 +32,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         # If added new columns through the User model, add them in the fields
         # list as seen below
         fields = ('username', 'password', 'email',
-                  'first_name', 'last_name',)
+                  'first_name', 'last_name', 'is_customer', 'is_staff')
 
     def create(self, validated_data):
 
@@ -40,7 +41,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-
+            is_customer=validated_data['is_customer'],
+            is_staff=validated_data['is_staff']
             # If added new columns through the User model, add them in this
             # create method. Example below:
 

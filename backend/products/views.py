@@ -17,8 +17,9 @@ def get_all_products(request):
 
 
 @api_view(['POST'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def create_product(request):
+    if  request.user.is_staff == True:
         serializer = ProductSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -26,10 +27,10 @@ def create_product(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['PUT'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def manage_product(request,pk):
     product = get_object_or_404(Product,pk=pk)
-    if request.method == 'PUT':
+    if request.method == 'PUT' & request.user.is_staff == True:
         serializer = ProductSerializer(product,data = request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
