@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'cars.apps.CarsConfig',  # This app is for example use only
     'orders',
     'products',
-    'order_items'
+    'order_items',
+    'cake_options'
 
 ]
 

@@ -6,5 +6,5 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     work_time = models.FloatField()
-    serves = models.CharField()
+    serves = models.CharField(max_length=32)
     description = models.TextField()
