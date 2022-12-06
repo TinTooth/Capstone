@@ -33,7 +33,6 @@ def create(request,order_pk):
 def manage(request,pk,order_pk):
     result = get_object_or_404(OrderItem,pk=pk)
     if request.method == 'GET' and request.user.is_staff == True:
-      
         serializer = OrderItemSerializer(result)
         return Response(serializer.data, status=status.HTTP_200_OK)
     if request.method == 'PUT' and request.user.is_staff == True:
@@ -43,7 +42,6 @@ def manage(request,pk,order_pk):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     if request.method == 'DELETE' and request.user.is_staff == True:
-      
         result.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 

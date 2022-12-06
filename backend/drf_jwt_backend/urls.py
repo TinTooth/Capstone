@@ -21,5 +21,6 @@ urlpatterns = [
     path('api/auth/', include('authentication.urls')),
     path('api/products/',include('products.urls')),
     path('api/products/options/',include('cake_options.urls')),
+    path('api/order/',include('orders.urls')),
     path('api/order/<int:order_pk>/items/',include('order_items.urls'))
 ]
