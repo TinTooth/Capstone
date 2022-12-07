@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
+import Input from "../../components/Util/Input/Input";
 
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
