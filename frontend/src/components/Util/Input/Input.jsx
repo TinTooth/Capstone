@@ -11,13 +11,13 @@ const Input = ({type = "text",name,value,onChange,title, textArea = false}) => {
     </label>
      ): 
      <label>
-     {title}{" "}
-     <input 
-     type={type}
-     name = {name}
-     value = {value}
-     onChange = {onChange} 
-     />
+        {title}{" "}
+        <input 
+        type={type}
+        name = {name}
+        value = {value}
+        onChange = {onChange} 
+        />
     </label>;
 }
  
