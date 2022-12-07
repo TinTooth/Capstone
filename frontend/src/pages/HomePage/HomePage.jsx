@@ -3,7 +3,8 @@ import { useEffect, useState, useRef } from "react";
 
 
 import axios from "axios";
-import LandingSection from "../../components/LandingSection/LandingSection";
+import LandingSection from "../../components/HomeComponents/LandingSection/LandingSection";
+import ImageBar from "../../components/HomeComponents/ImageBar/ImageBar";
 
 const HomePage = () => {
   const [products,SetProducts] = useState([])
@@ -32,7 +33,7 @@ const HomePage = () => {
   return (
     <>
     <LandingSection />
-    
+    <ImageBar/>
     </>
     );
 };

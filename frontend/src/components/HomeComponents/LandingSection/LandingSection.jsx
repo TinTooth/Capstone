@@ -1,5 +1,5 @@
 import "./LandingSection.css"
-import background from "../../Images/HomeBackground.jpg"
+
 import React, {useRef} from "react"
 import { useNavigate } from "react-router-dom";
 
@@ -20,8 +20,6 @@ const LandingSection = () => {
         // navigate('path goes here')
     }
 
-
-
     return (
         <div className="section-container">
             <div className="nav-bar">
@@ -37,9 +35,9 @@ const LandingSection = () => {
                 <div className="subhead">
                     A Home Bakery in Fox Point Wisconsin
                 </div>
-                <div className="subhead"> Lisa has been sweeting up events since 2017</div>
+                <div className="subhead"> Started by Lisa in 2017, she has been sweeting up events since!</div>
             </div>
-            <div className="footer font1"> See Lisa's Creations Below!</div>
+            <div className="footer font1"> See Lisa's Creations Below</div>
         </div>
       );
 }

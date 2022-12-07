@@ -8,6 +8,15 @@
   box-sizing: inherit;
 }
 
+body {
+  background-color: #768397;
+}
+
+.divider {
+  background-color: #3d4757;
+  height: 4vh;
+}
+
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
