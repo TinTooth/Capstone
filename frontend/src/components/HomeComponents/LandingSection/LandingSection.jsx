@@ -1,17 +1,19 @@
 import "./LandingSection.css"
 
-import React, {useRef} from "react"
+import React from "react"
 import { useNavigate } from "react-router-dom";
 
-const LandingSection = () => {
+const LandingSection = ({cookieRef, cakeRef, cupcakeRef, goodiesRef}) => {
     const navigate = useNavigate()
     
+
+
     const handleSectionClick = e => {
         switch(e.target.name) {
-            case "cakes" : console.log("scroll to cake");break;
-            case "cupcakes" : console.log("scroll to cupcake");break;
-            case "cookies" : console.log('scroll to cookie');break;
-            case "goodies" :console.log('scroll to goodies');break;
+            case "cakes" : cakeRef.current?.scrollIntoView({behavior: "smooth"});break;
+            case "cupcakes" : cupcakeRef.current?.scrollIntoView({behavior: "smooth"});break;
+            case "cookies" : cookieRef.current?.scrollIntoView({behavior: "smooth"});break;
+            case "goodies" : goodiesRef.current?.scrollIntoView({behavior: "smooth"});break;
         }
     }
 

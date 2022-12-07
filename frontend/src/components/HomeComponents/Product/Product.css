@@ -1,0 +1,9 @@
+.product-info {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background-color: rgb(253, 228, 228);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}

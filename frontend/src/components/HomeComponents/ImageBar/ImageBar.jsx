@@ -1,9 +1,9 @@
 import "./ImageBar.css"
-import image1 from "../../../Images/weddingcookie.jpeg"
-import image2 from "../../../Images/firstbirthdaycake.jpeg"
+import image5 from "../../../Images/weddingcookie.jpeg"
+import image2 from "../../../Images/penguincake.jpeg"
 import image3 from "../../../Images/rosecupcake.jpeg"
 import image4 from "../../../Images/monkeycake.jpeg"
-import image5 from "../../../Images/butterflycookies.jpeg"
+import image1 from "../../../Images/butterflycookies.jpeg"
 
 
 const ImageBar = () => {
