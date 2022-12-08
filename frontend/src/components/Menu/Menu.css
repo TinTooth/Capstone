@@ -1,0 +1,26 @@
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.column{
+    padding: 2%;
+    width: 25vw;
+}
+
+.option-list{
+    padding: 2%;
+}
+
+.item-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.button-row {
+    
+    display: flex;
+    justify-content: flex-end;
+}

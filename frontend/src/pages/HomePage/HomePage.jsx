@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 // Components
@@ -14,12 +14,12 @@ import cake3 from "../../Images/cake3.jpeg";
 
 const HomePage = () => {
   
-  const [products,SetProducts] = useState([]);
+  const [products,setProducts] = useState([]);
   // const [options,SetOptions] = useState([]);
-  const [cakeProducts,SetCakeProducts] = useState([]);
-  const [cupcakeProducts,SetCupCakeProducts] = useState([]);
-  const [cookieProducts,SetCookieProducts] = useState([]);
-  const [goodieProducts,SetGoodieProducts] = useState([]);
+  const [cakeProducts,setCakeProducts] = useState([]);
+  const [cupcakeProducts,setCupCakeProducts] = useState([]);
+  const [cookieProducts,setCookieProducts] = useState([]);
+  const [goodieProducts,setGoodieProducts] = useState([]);
   const [cakeImages] = useState([cake1,cake2,cake3])
   //  REFS
   const cookieRef = useRef();
@@ -38,7 +38,7 @@ const HomePage = () => {
 
   async function getProducts() {
     const response = await axios.get("http://127.0.0.1:8000/api/products/")
-    SetProducts(response.data)
+    setProducts(response.data)
   }
   // async function getOptions() {
   //   const response = await axios.get("http://127.0.0.1:8000/api/products/options/")
@@ -47,13 +47,13 @@ const HomePage = () => {
 
   const seperateProducts = () => {
       let cookies = products.filter(p => p.type === "Cookies");
-      SetCookieProducts(cookies);
+      setCookieProducts(cookies);
       let cake = products.filter(p => p.type === "Cakes");
-      SetCakeProducts(cake);
+      setCakeProducts(cake);
       let cupcakes = products.filter(p => p.type === "Cupcakes");
-      SetCupCakeProducts(cupcakes);
+      setCupCakeProducts(cupcakes);
       let goodies = products.filter(p => p.type ==="Goodies")
-      SetGoodieProducts(goodies);
+      setGoodieProducts(goodies);
   }
 
 
