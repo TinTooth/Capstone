@@ -21,17 +21,16 @@ const Menu = ({type, close}) => {
                 <div className="column">
                     <OptionsList type = {"Cake Flavors"} options = {options}/>
                     <OptionsList type = {"Classic Frostings"} options = {options}/>
-                    <OptionsList type = {"Specialty Frostings & Fillings"} options = {options}/>
+                    <OptionsList type = {"Specialty Fillings"} options = {options}/>
                 </div>
                 <div className="column">
-                    SIZES
+                    <OptionsList type = {"Specialty Frostings"} options = {options}/>
+                    <OptionsList type = {"Cake Size"} options = {options}/>
                 </div>
             </div>
             <div className="button-row">
             <button onClick={close}>Close</button>
             </div>
-    
-    
         </div>
     ): options.length ? (
     <div>

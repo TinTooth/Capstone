@@ -29,7 +29,6 @@ const HomePage = () => {
 
   useEffect(() => {
     getProducts()
-    // getOptions()
   },[]);
 
   useEffect(() => {
@@ -40,11 +39,7 @@ const HomePage = () => {
     const response = await axios.get("http://127.0.0.1:8000/api/products/")
     setProducts(response.data)
   }
-  // async function getOptions() {
-  //   const response = await axios.get("http://127.0.0.1:8000/api/products/options/")
-  //   SetOptions(response.data)
-  // }
-
+ 
   const seperateProducts = () => {
       let cookies = products.filter(p => p.type === "Cookies");
       setCookieProducts(cookies);

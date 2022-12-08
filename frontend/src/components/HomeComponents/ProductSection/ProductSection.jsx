@@ -10,8 +10,7 @@ const ProductSection = ({thisref, productData ,images}) => {
     const [modal,setModal] = useState(false);
 
     const handleOrderClick = () => {
-        console.log("NAVIGATE TO ORDER PAGE")
-        // navigate('path goes here')
+        navigate('/order');
     }
 
     const handleModal = () =>{

@@ -4,3 +4,5 @@ from django.db import models
 class CakeOption(models.Model):
     type = models.CharField(max_length=32)
     description = models.CharField(max_length=255)
+    serves = models.CharField(max_length=32, default="0")
+    size = models.CharField(max_length=100, default = "none")

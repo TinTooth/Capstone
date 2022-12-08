@@ -18,8 +18,7 @@ const LandingSection = ({cookieRef, cakeRef, cupcakeRef, goodiesRef}) => {
     }
 
     const handleOrderClick = () => {
-        console.log("NAVIGATE TO ORDER PAGE")
-        // navigate('path goes here')
+        navigate('/order');
     }
 
     return (
