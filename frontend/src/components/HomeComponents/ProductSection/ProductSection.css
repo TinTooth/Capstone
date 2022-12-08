@@ -1,11 +1,13 @@
 .product-section-container {
-    height: 75vh;  
+    height: 100vh;  
 }
 
 .products-container {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
+    margin-top: 10vh;
+    height: 70%;
 }
 
 .product {
@@ -20,4 +22,9 @@
     text-align: center;
     border-bottom: 4px solid #3d4757;
     margin-bottom: 2%;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
 }

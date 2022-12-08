@@ -3,7 +3,16 @@ import "./Product.css"
 const Product = ({product,image}) => {
     return (
         <div className="product-info">
-            {product.name}
+            <div className="product-name">{product.name}</div>
+            <div className="image-container-card">
+                <img src={image} alt="product image" />
+            </div>
+            <div className="details border-top-darkgray">
+                <div className="description"> {product.description}</div>
+                <div className="price">${product.price}{product.type === "Cookies" || product.type === "Cupcakes" ? (
+                            " per Dozen"
+                ): " Each"}</div>
+            </div>
         </div>
       );
 }
