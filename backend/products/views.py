@@ -15,6 +15,7 @@ def get_all_products(request):
     serializer = CustomerProductSerializer(products, many = True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create_product(request):

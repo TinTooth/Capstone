@@ -18,7 +18,7 @@ const OptionsList = ({type,options}) => {
             {options.map((o,i)=>{
                 return o.type === "Cake Size" ? ( 
                     <tr key = {i}>
-                        <td>{o.size}</td>
+                        <td>{o.description}</td>
                         <td>{o.serves}</td>
                     </tr>
                 ):null

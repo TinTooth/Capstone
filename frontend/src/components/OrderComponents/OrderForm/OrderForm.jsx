@@ -4,7 +4,7 @@ import "./OrderForm.css"
 import ProductList from "../ProductList/ProductList";
 
 
-const OrderForm = ({setItems}) => {
+const OrderForm = ({setItems, items}) => {
     const [products,setProducts] = useState([]);
     const [options,setOptions] = useState([])
     
@@ -24,7 +24,8 @@ const OrderForm = ({setItems}) => {
     }
 
     const addItem = (item) => {
-        
+        let newitems = [...items,item];
+        setItems(newitems);
     }
 
     return ( 

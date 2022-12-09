@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar.jsx"
+import ItemList from "../../components/OrderComponents/ItemsList/ItemList.jsx";
 import OrderForm from "../../components/OrderComponents/OrderForm/OrderForm.jsx";
 import useAuth from "../../hooks/useAuth";
 import "./OrderPage.css"
@@ -18,7 +19,10 @@ const OrderPage = () => {
     return user ? (
         <>
         <NavBar></NavBar>
-        <OrderForm setItems={setitems} />
+        <div className="container-no-wrap">
+        <OrderForm setItems={setitems}  items = {items}/>
+        <ItemList items = {items}></ItemList>
+        </div>
         </>  
         
     ): 

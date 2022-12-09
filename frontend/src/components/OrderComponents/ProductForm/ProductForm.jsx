@@ -3,14 +3,15 @@ import { useState,useEffect } from "react";
 import useCustomForm from "../../../hooks/useCustomForm";
 import Input from "../../Util/Input/Input";
 
-const ProductForm = ({product,addItem,closeModal}) => {
+const ProductForm = ({product,addItem,closeModal,products}) => {
     const [options,setOptions] = useState([]);
     const [filteredOptions, setfilteredOptions] = useState({});
     const quantity = [{description:12},{description:24},{description:36},{description:48},{description:60}]
   
     const item = {
+        product:product,
         order_id: 0,
-        product_id: 0,
+        product_id: product.id,
         quantity: 0,
         design_details: "Add Theme and Design Details Here as Well as Any Special Instructions for Lisa",
         cake_flavor: "",
@@ -20,7 +21,12 @@ const ProductForm = ({product,addItem,closeModal}) => {
     }
     
     const createItem = (formData) => {
-        console.log(formData);
+        if (product.type === "Cakes"){
+            let newproduct = products.filter(p => p.description === formData.size && p.name.includes(product.name));
+            console.log(newproduct[0]);
+            formData.product = newproduct[0];
+        }
+        addItem(formData)
         closeModal();
     }
     const [formData, handleInputChange,handleSubmit] = useCustomForm(item,createItem)

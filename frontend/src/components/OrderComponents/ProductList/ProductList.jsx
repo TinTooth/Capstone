@@ -11,10 +11,10 @@ const ProductList = ({addItem, productName,products}) => {
         <div className="product-list-container">
             <div className="product-heading">{productName}</div>
             {products.map((p,i) =>{
-                return p.type === productName ? (
+                return p.type === productName? (
                     <div className="product-row" key ={i}>
                         {p.name}
-                        <ProductModal addItem={addItem} product = {p}></ProductModal>
+                        <ProductModal addItem={addItem} product = {p} products = {products}></ProductModal>
                     </div>
                     ):null
                 })}
