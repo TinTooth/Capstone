@@ -10,8 +10,8 @@ const ProductModal = ({addItem, product}) => {
     return (
         <>
         <button onClick = {handleModal}>ADD</button>
-        <Modal title ={`${product.name}`} modal = {modal} onClose = {handleModal} >
-            <ProductForm product={product} addItem ={addItem}/>
+        <Modal title ={`${product.name} ${product.type}`} modal = {modal} onClose = {handleModal} >
+            <ProductForm product={product} addItem ={addItem} closeModal= {handleModal}/>
         </Modal>
         </>
       );

@@ -3,55 +3,120 @@ import { useState,useEffect } from "react";
 import useCustomForm from "../../../hooks/useCustomForm";
 import Input from "../../Util/Input/Input";
 
-const ProductForm = ({product,addItem}) => {
+const ProductForm = ({product,addItem,closeModal}) => {
     const [options,setOptions] = useState([]);
+    const [filteredOptions, setfilteredOptions] = useState({});
+    const quantity = [{description:12},{description:24},{description:36},{description:48},{description:60}]
+  
     const item = {
         order_id: 0,
         product_id: 0,
         quantity: 0,
-        design_details: ""
-    }
-    const input = {
-        order_id: 0,
-        product_id: 0,
-        quantity: 0,
-        cakeflavor: "",
+        design_details: "Add Theme and Design Details Here as Well as Any Special Instructions for Lisa",
+        cake_flavor: "",
         frosting: "",
         filling: "",
-        design_details: ""
+        size:""
     }
-
-
+    
     const createItem = (formData) => {
-        item.quantity = formData.quantity;
-        item.design_details = `CakeFlavor: ${formData.cakeflavor}  Frosting: ${formData.frosting} Filling: ${formData.filling}                          ${formData.design_details}`;
-        console.log(item);
+        console.log(formData);
+        closeModal();
     }
-    const [formData, handleInputChange,handleSubmit] = useCustomForm(input,createItem)
+    const [formData, handleInputChange,handleSubmit] = useCustomForm(item,createItem)
 
     useEffect(()=>{
         getOptions();
     },[]);
+
+    useEffect(()=>{
+        setArrays();
+    },[options]);
 
     async function getOptions() {
         const response = await axios.get("http://127.0.0.1:8000/api/products/options/")
         setOptions(response.data)
     }
 
+    const setArrays = () => {
+        let cakeflavors = options.filter(o => o.type === "Cake Flavors");
+        let classicFrostings = options.filter(o => o.type === "Classic Frostings");
+        let specialtyFrostings = options.filter(o => o.type === "Specialty Frostings");
+        let allFrostings = [...classicFrostings,...specialtyFrostings];
+        let cakesize= options.filter(o => o.type === "Cake Size");
+        let classicFillings= options.filter(o => o.type === "Classic Fillings");
+        let specFillings= options.filter(o => o.type === "Specialty Fillings");
+        let allFillings = [...classicFillings,...specFillings];
+        let cupcakeFlavors= options.filter(o => o.type === "Specialty Cupcake Flavors");
+        setfilteredOptions({cakeflavors,classicFrostings,allFrostings, classicFillings, allFillings,cakesize,cupcakeFlavors})
+    }
+
+    const cakefrostings = () => {
+        return product.name === "Classic" ? (filteredOptions.classicFrostings) : filteredOptions.allFrostings;
+    } 
+    const cakefillings = () => {
+        return product.name === "Classic" ? (filteredOptions.classicFillings) : filteredOptions.allFillings;
+    } 
     
-    return options.length ? (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <Input title = "Cake Flavor:" name ="cakeflavor" value = {formData.cakeflavor} onChange = {handleInputChange} />
-                <select name ="frosting" onChange = {handleInputChange}>
-                    <option value = 'vanilla'> Vanilla</option>
-                    <option value = 'chocolate'> Chocolate</option>
-                    <option value = 'creamcheese'> Cream Cheese</option>
-                </select>
+
+    
+    return options.length && product.type === "Cakes" ? (
+        <div className="no-wrap-container">
+            <div>{product.description}</div>
+            <form className = 'form' onSubmit={handleSubmit}>
+                <Input title = "Cake Flavor: " name ="cake_flavor" value = {formData.cake_flavor}
+                 onChange = {handleInputChange} options = {filteredOptions.cakeflavors} select = {true}/>
+                <Input title = "Cake Frosting: " name ="frosting" value = {formData.frosting}
+                 onChange = {handleInputChange} options = {cakefrostings()} select = {true}/>
+                <Input title = "Cake Filling: " name ="filling" value = {formData.filling}
+                 onChange = {handleInputChange} options = {cakefillings()} select = {true}/>
+                <Input title = "Cake Size: " name ="size" value = {formData.size}
+                 onChange = {handleInputChange} options = {filteredOptions.cakesize} select = {true}/>
+                <Input title = "Details: " name ="size" value = {formData.design_details}
+                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
         </div> 
-     ) :null;
+     ) : options.length && product.type === "Cupcakes"  && product.name != "Lisa's Specialty"?(
+        <div className="no-wrap-container">
+            <div>{product.description}</div>
+            <form className = 'form' onSubmit={handleSubmit}>
+                <Input title = "Cake Flavor: " name ="cake_flavor" value = {formData.cake_flavor}
+                    onChange = {handleInputChange} options = {filteredOptions.cakeflavors} select = {true}/>
+                <Input title = "Frosting: " name ="frosting" value = {formData.frosting}
+                    onChange = {handleInputChange} options = {filteredOptions.classicFrostings} select = {true}/>
+                <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
+                    onChange = {handleInputChange} options = {quantity} select = {true}/>
+                <Input title = "Details: " name ="size" value = {formData.design_details}
+                    onChange = {handleInputChange} textArea = {true}/>
+                <button type="submit">ADD</button>
+            </form>
+        </div> 
+     ):options.length && product.type === "Cupcakes" ? (
+        <div className="no-wrap-container">
+            <div>{product.description}</div>
+            <form className = 'form' onSubmit={handleSubmit}>
+                <Input title = "Specialty CupCake: " name ="cake_flavor" value = {formData.cake_flavor}
+                    onChange = {handleInputChange} options = {filteredOptions.cupcakeFlavors} select = {true}/>
+                <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
+                    onChange = {handleInputChange} options = {quantity} select = {true}/>
+                <Input title = "Details: " name ="size" value = {formData.design_details}
+                onChange = {handleInputChange} textArea = {true}/>
+                <button type="submit">ADD</button>
+            </form>
+        </div> 
+    ): options.length ? (
+        <div className="no-wrap-container">
+            <div>{product.description}</div>
+            <form className = 'form' onSubmit={handleSubmit}>
+                <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
+                    onChange = {handleInputChange} options = {quantity} select = {true}/>
+                <Input title = "Details: " name ="size" value = {formData.design_details}
+                onChange = {handleInputChange} textArea = {true}/>
+                <button type="submit">ADD</button>
+            </form>
+        </div> 
+    ): null;
 }
  
 export default ProductForm;
