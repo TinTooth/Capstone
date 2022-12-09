@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./OrderForm.css"
+import ProductList from "../ProductList/ProductList";
 
 
-const OrderForm = ({setItems, setOrder}) => {
+const OrderForm = ({setItems}) => {
     const [products,setProducts] = useState([]);
     const [options,setOptions] = useState([])
     
@@ -11,6 +12,8 @@ const OrderForm = ({setItems, setOrder}) => {
         getProducts();
         getOptions();
     },[])
+
+   
 
 
     async function getProducts() {
@@ -25,7 +28,12 @@ const OrderForm = ({setItems, setOrder}) => {
 
     return ( 
         <div className="form-container">
-            Order Form
+            <div className="products-row">
+                <ProductList setItems={setItems} productName ={"Cakes"} products = {products}></ProductList>
+                <ProductList setItems={setItems} productName ={"Cupcakes"} products = {products}></ProductList>
+                <ProductList setItems={setItems} productName = {"Cookies"} products = {products}> </ProductList>
+                <ProductList setItems={setItems} productName = {"Goodies"} products = {products}></ProductList>
+            </div>
         </div>
      );
 }

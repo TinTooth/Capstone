@@ -5,3 +5,10 @@
     padding: 2%;
     margin: 4%;
 }
+
+.products-row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    background-color: aqua;
+}

@@ -11,10 +11,14 @@ const OrderPage = () => {
     const [items, setitems] = useState([]);
     const [order, setOrder] = useState([]);
 
+    const submitOrder = (order) => {
+        return
+    } 
+
     return user ? (
         <>
         <NavBar></NavBar>
-        <OrderForm setItems={setitems} setOrder = {setOrder}/>
+        <OrderForm setItems={setitems} />
         </>  
         
     ): 
