@@ -13,9 +13,6 @@ const OrderForm = ({setItems}) => {
         getOptions();
     },[])
 
-   
-
-
     async function getProducts() {
         const response = await axios.get("http://127.0.0.1:8000/api/products/")
         setProducts(response.data)
@@ -26,13 +23,17 @@ const OrderForm = ({setItems}) => {
         setOptions(response.data)
     }
 
+    const addItem = (item) => {
+        
+    }
+
     return ( 
         <div className="form-container">
             <div className="products-row">
-                <ProductList setItems={setItems} productName ={"Cakes"} products = {products}></ProductList>
-                <ProductList setItems={setItems} productName ={"Cupcakes"} products = {products}></ProductList>
-                <ProductList setItems={setItems} productName = {"Cookies"} products = {products}> </ProductList>
-                <ProductList setItems={setItems} productName = {"Goodies"} products = {products}></ProductList>
+                <ProductList addItem={addItem} productName ={"Cakes"} products = {products}></ProductList>
+                <ProductList addItem={addItem} productName ={"Cupcakes"} products = {products}></ProductList>
+                <ProductList addItem={addItem} productName = {"Cookies"} products = {products}> </ProductList>
+                <ProductList addItem={addItem} productName = {"Goodies"} products = {products}></ProductList>
             </div>
         </div>
      );

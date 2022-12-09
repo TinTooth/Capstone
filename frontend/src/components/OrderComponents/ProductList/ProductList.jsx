@@ -2,7 +2,7 @@ import ProductModal from "../ProductModal/ProductModal";
 import "./ProductList.css"
 
 
-const ProductList = ({setItem, productName,products}) => {
+const ProductList = ({addItem, productName,products}) => {
     
     
     return products.length ? ( 
@@ -14,7 +14,7 @@ const ProductList = ({setItem, productName,products}) => {
                 return p.type === productName ? (
                     <div className="product-row" key ={i}>
                         {p.name}
-                        <ProductModal setItem={setItem} product = {p}></ProductModal>
+                        <ProductModal addItem={addItem} product = {p}></ProductModal>
                     </div>
                     ):null
                 })}
