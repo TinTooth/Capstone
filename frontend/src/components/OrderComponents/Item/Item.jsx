@@ -1,6 +1,6 @@
 const Item = ({item,i,setItems,items}) => {
     const calcPrice = () => {
-        if (item.quantity%12 === 0 ) {
+        if (item.quantity%12 === 0 && item.product.type === "Cupcakes" || item.quantity%12 === 0 && item.product.type === "Cookies") {
             let price = (item.quantity/12)*item.product.price
             return price
         }

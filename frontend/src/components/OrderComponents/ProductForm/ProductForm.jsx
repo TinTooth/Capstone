@@ -69,6 +69,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
     return options.length && product.type === "Cakes" ? (
         <div className="no-wrap-container">
             <div>{product.description}</div>
+            <div>${product.price} Each, Depending on Size </div>
             <form className = 'form' onSubmit={handleSubmit}>
                 <Input title = "Cake Flavor: " name ="cake_flavor" value = {formData.cake_flavor}
                  onChange = {handleInputChange} options = {filteredOptions.cakeflavors} select = {true}/>
@@ -86,6 +87,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
      ) : options.length && product.type === "Cupcakes"  && product.name != "Lisa's Specialty Cupcake"?(
         <div className="no-wrap-container">
             <div>{product.description}</div>
+            <div>${product.price} Per Dozen </div>
             <form className = 'form' onSubmit={handleSubmit}>
                 <Input title = "Cake Flavor: " name ="cake_flavor" value = {formData.cake_flavor}
                     onChange = {handleInputChange} options = {filteredOptions.cakeflavors} select = {true}/>
@@ -101,6 +103,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
      ):options.length && product.type === "Cupcakes" ? (
         <div className="no-wrap-container">
             <div>{product.description}</div>
+            <div>{product.price} Per Dozen </div>
             <form className = 'form' onSubmit={handleSubmit}>
                 <Input title = "Specialty CupCake: " name ="cake_flavor" value = {formData.cake_flavor}
                     onChange = {handleInputChange} options = {filteredOptions.cupcakeFlavors} select = {true}/>
@@ -111,9 +114,10 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 <button type="submit">ADD</button>
             </form>
         </div> 
-    ): options.length ? (
+    ): options.length  && product.type === "Cookies" ? (
         <div className="no-wrap-container">
             <div>{product.description}</div>
+            <div>${product.price} Per Dozen </div>
             <form className = 'form' onSubmit={handleSubmit}>
                 <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
                     onChange = {handleInputChange} options = {quantity} select = {true}/>
@@ -122,7 +126,18 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 <button type="submit">ADD</button>
             </form>
         </div> 
-    ): null;
+    ): options.length ? (
+        <div className="no-wrap-container">
+            <div>{product.description}</div>
+            <div>${product.price} Each</div>
+            <form className = 'form' onSubmit={handleSubmit}>
+                <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
+                    onChange = {handleInputChange} />
+                <Input title = "Details: " name ="size" value = {formData.design_details}
+                onChange = {handleInputChange} textArea = {true}/>
+                <button type="submit">ADD</button>
+            </form>
+        </div> ):null;
 }
  
 export default ProductForm;

@@ -75,7 +75,7 @@ const ItemList = ({items, setItems}) => {
                     </tr>
                 </thead>
         </table>
-        <div>Total ${total}</div>
+        <div>Total 0</div>
 
     </div>;
 }
