@@ -20,8 +20,9 @@ const OrderPage = () => {
         <>
         <NavBar></NavBar>
         <div className="container-no-wrap">
+
         <OrderForm setItems={setitems}  items = {items}/>
-        <ItemList items = {items}></ItemList>
+        <ItemList items = {items} setItems = {setitems}></ItemList>
         </div>
         </>  
         

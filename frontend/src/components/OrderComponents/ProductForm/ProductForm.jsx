@@ -12,7 +12,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
         product:product,
         order_id: 0,
         product_id: product.id,
-        quantity: 0,
+        quantity: 1,
         design_details: "Add Theme and Design Details Here as Well as Any Special Instructions for Lisa",
         cake_flavor: "",
         frosting: "",
@@ -58,10 +58,10 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
     }
 
     const cakefrostings = () => {
-        return product.name === "Classic" ? (filteredOptions.classicFrostings) : filteredOptions.allFrostings;
+        return product.name.includes("Classic") ? (filteredOptions.classicFrostings) : filteredOptions.allFrostings;
     } 
     const cakefillings = () => {
-        return product.name === "Classic" ? (filteredOptions.classicFillings) : filteredOptions.allFillings;
+        return product.name.includes("Classic") ? (filteredOptions.classicFillings) : filteredOptions.allFillings;
     } 
     
 
@@ -83,7 +83,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 <button type="submit">ADD</button>
             </form>
         </div> 
-     ) : options.length && product.type === "Cupcakes"  && product.name != "Lisa's Specialty"?(
+     ) : options.length && product.type === "Cupcakes"  && product.name != "Lisa's Specialty Cupcake"?(
         <div className="no-wrap-container">
             <div>{product.description}</div>
             <form className = 'form' onSubmit={handleSubmit}>
