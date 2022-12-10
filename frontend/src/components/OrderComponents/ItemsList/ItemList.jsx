@@ -39,9 +39,8 @@ const ItemList = ({items, setItems}) => {
             <table>
                 <thead>
                     <tr>
-                        <th> #</th>
+                        <th> </th>
                         <th> Item</th>
-                        <th> Quantity </th>
                         <th> Price</th>
                         <th> </th>
 

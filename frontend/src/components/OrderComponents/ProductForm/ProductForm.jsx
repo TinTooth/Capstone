@@ -11,13 +11,11 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
     const item = {
         product:product,
         order_id: 0,
-        product_id: product.id,
         quantity: 1,
         design_details: "Add Theme and Design Details Here as Well as Any Special Instructions for Lisa",
-        cake_flavor: "",
-        frosting: "",
-        filling: "",
-        size:""
+        cake_flavor: "NA",
+        frosting: "NA",
+        filling: "NA",
     }
     
     const createItem = (formData) => {
@@ -79,7 +77,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                  onChange = {handleInputChange} options = {cakefillings()} select = {true}/>
                 <Input title = "Cake Size: " name ="size" value = {formData.size}
                  onChange = {handleInputChange} options = {filteredOptions.cakesize} select = {true}/>
-                <Input title = "Details: " name ="size" value = {formData.design_details}
+                <Input title = "Details: " name ="design_details" value = {formData.design_details}
                  onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
@@ -95,7 +93,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                     onChange = {handleInputChange} options = {filteredOptions.classicFrostings} select = {true}/>
                 <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
                     onChange = {handleInputChange} options = {quantity} select = {true}/>
-                <Input title = "Details: " name ="size" value = {formData.design_details}
+                <Input title = "Details: " name ="design_details" value = {formData.design_details}
                     onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
@@ -109,7 +107,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                     onChange = {handleInputChange} options = {filteredOptions.cupcakeFlavors} select = {true}/>
                 <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
                     onChange = {handleInputChange} options = {quantity} select = {true}/>
-                <Input title = "Details: " name ="size" value = {formData.design_details}
+                <Input title = "Details: " name ="design_details" value = {formData.design_details}
                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
@@ -121,7 +119,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
             <form className = 'form' onSubmit={handleSubmit}>
                 <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
                     onChange = {handleInputChange} options = {quantity} select = {true}/>
-                <Input title = "Details: " name ="size" value = {formData.design_details}
+                <Input title = "Details: " name ="design_details" value = {formData.design_details}
                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
@@ -133,7 +131,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
             <form className = 'form' onSubmit={handleSubmit}>
                 <Input title = "Quantity: " name ="quantity" value = {formData.quantity}
                     onChange = {handleInputChange} />
-                <Input title = "Details: " name ="size" value = {formData.design_details}
+                <Input title = "Details: " name ="design_details"value = {formData.design_details}
                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>

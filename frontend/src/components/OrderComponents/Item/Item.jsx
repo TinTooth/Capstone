@@ -18,9 +18,8 @@ const Item = ({item,i,setItems,items}) => {
     
     return ( 
        <>
-        <td> {i+1}</td>
-        <td> {item.product.name}</td>
         <td> {item.quantity}</td>
+        <td> {item.product.name}</td>
         <td> {`$${calcPrice()}`}</td>
         <td> <button value = {i} onClick = {removeItem}>REMOVE</button></td>
        </> 

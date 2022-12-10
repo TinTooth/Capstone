@@ -30,7 +30,7 @@ def manage(request,pk):
     if request.method == 'GET' and request.user.is_staff == True:
         serializer = OrderSerializer(result)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    if request.method == 'PUT' and request.user.is_staff == True:
+    if request.method == 'PUT' and request.user.is_staff == True or request.method == 'PUT' and request.user == result.user :
         serializer = OrderSerializer(result,data = request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
