@@ -7,3 +7,4 @@ class Product(models.Model):
     price = models.CharField(max_length=32)
     work_time = models.FloatField()
     description = models.TextField()
+    pricebydozen = models.BooleanField(default=False)

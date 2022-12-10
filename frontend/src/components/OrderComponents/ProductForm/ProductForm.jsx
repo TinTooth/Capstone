@@ -114,7 +114,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 <button type="submit">ADD</button>
             </form>
         </div> 
-    ): options.length  && product.type === "Cookies" ? (
+    ): options.length  && product.pricebydozen ? (
         <div className="no-wrap-container">
             <div>{product.description}</div>
             <div>${product.price} Per Dozen </div>
