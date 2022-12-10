@@ -6,6 +6,7 @@ import useCustomForm from "../../../hooks/useCustomForm";
 import Input from "../../Util/Input/Input";
 import Modal from "../../Util/Modal/Modal";
 import useConfig from "../../../hooks/useConfig";
+import ItemList from "../ItemsList/ItemList";
 
 
 
@@ -110,6 +111,7 @@ const OrderForm = ({setItems, items}) => {
             postItem(newItem);
          })
         setitemConfirmModal(false);
+
     }
 
     const handleModal = () => {
@@ -135,7 +137,8 @@ const OrderForm = ({setItems, items}) => {
             </div>
             <button onClick ={handleSubmit}>Submit Order Request</button> 
             <Modal title = "" modal = {itemConfirmModal} onClose = {handleModal}>
-                Please Confirm Items are Correct
+                <div className="message">Please Confirm Items Below</div>
+                <ItemList items = {items} setItems = {setItems}></ItemList>
                 <button onClick = {handleModal}>CANCEL</button>
                 <button onClick = {createItems}>Confirm Items</button> 
             </Modal>
