@@ -1,33 +1,24 @@
 import React, { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
+import useCalc from "../../../hooks/useCalc";
 
 const Item = ({item,i,setItems,items}) => {
     const [show, setShow] = useState(false);
     const target = useRef(null);
+    const [getPrice] = useCalc();
 
-    const calcPrice = () => {
-        if (item.product.pricebydozen) {
-            let price = (item.quantity/12)*item.product.price
-            return price
-        }
-        else {
-            let price = item.quantity*item.product.price
-            return price
-        }
+    const removeItem = () => {
+        items.splice(i,1);
+        let newArray = [...items];
+        setItems(newArray);
     }
-
-        const removeItem = () => {
-            items.splice(i,1);
-            let newArray = [...items];
-            setItems(newArray);
-        }
     
     return ( 
        <>
         <td> {item.quantity}</td>
         <td> {item.product.name}</td>
-        <td> {`$${calcPrice()}`}</td>
+        <td> {`$${getPrice(item)}`}</td>
         <td> 
             <button onClick = {removeItem}>REMOVE</button>
             <Button variant ="primary" ref={target} onClick = {()=>setShow(!show)}>

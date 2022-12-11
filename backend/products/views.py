@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from .models import Product
-from .serializers import ProductSerializer, CustomerProductSerializer
+from .serializers import ProductSerializer
 # Create your views here.
 
 
@@ -12,7 +12,7 @@ from .serializers import ProductSerializer, CustomerProductSerializer
 @permission_classes([AllowAny])
 def get_all_products(request):
     products = Product.objects.all()
-    serializer = CustomerProductSerializer(products, many = True)
+    serializer = ProductSerializer(products, many = True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 

@@ -1,9 +1,11 @@
 import { useEffect,useState } from "react";
 import Item from "../Item/Item";
 import "./itemList.css"
+import useCalc from "../../../hooks/useCalc";
 
 const ItemList = ({items, setItems}) => {
     const [total, setTotal] = useState(0);
+    const [getPrice] = useCalc();
 
     const click = () => {
         console.log(items);
@@ -17,14 +19,7 @@ const ItemList = ({items, setItems}) => {
         if (items.length > 0) {
             let result = 0;
             items.forEach(item => {
-                if (item.quantity%12 === 0 ) {
-                    let price = (item.quantity/12)*item.product.price
-                    result+=price;
-                }
-                else {
-                    let price = item.quantity*item.product.price
-                    result+=price;
-                }
+                result += getPrice(item);
             })
             setTotal(result);
         }

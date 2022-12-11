@@ -7,6 +7,7 @@ import Input from "../../Util/Input/Input";
 import Modal from "../../Util/Modal/Modal";
 import useConfig from "../../../hooks/useConfig";
 import ItemList from "../ItemsList/ItemList";
+import useCalc from "../../../hooks/useCalc";
 
 
 
@@ -14,9 +15,9 @@ const OrderForm = ({setItems, items}) => {
     const [products,setProducts] = useState([]);
     const [currentOrder,setcurrentOrder] = useState([]);
     const [options,setOptions] = useState([]);
-    const [orderConfirmModal, setorderConfirmModal] = useState(false);
     const [itemConfirmModal, setitemConfirmModal] = useState(false);
     const config = useConfig();
+    const [getPrice, getWorkTime] = useCalc();
     let order = {
         user:1,
         deliver_date: "",
@@ -50,7 +51,8 @@ const OrderForm = ({setItems, items}) => {
         let updatedOrder = currentOrder;
         updatedOrder.status = "Pending";
         updatedOrder.total_price = getTotalPrice();
-        updatedOrder.total_work_time = getWorkTime();
+        updatedOrder.total_work_time = getWorkTime(items);
+        console.log(updatedOrder);
         const response = await axios.put(`http://127.0.0.1:8000/api/order/${updatedOrder.id}/`,updatedOrder,config)
         setcurrentOrder(response.data)
     }
@@ -63,21 +65,11 @@ const OrderForm = ({setItems, items}) => {
     const getTotalPrice = () => {
         let result = 0;
         items.forEach(item => {
-            if (item.product.pricebydozen) {
-                let price = (item.quantity/12)*item.product.price;
-                result+=price;
-            }
-            else {
-                let price = item.quantity*item.product.price
-                result+=price;
-            }
+            result += getPrice(item);
         });
         return result
     }
 
-    const getWorkTime = () => {
-        return 0
-    }
 
     const addItem = (item) => {
         let newitems = [...items,item];
@@ -86,7 +78,6 @@ const OrderForm = ({setItems, items}) => {
 
     const createOrder= () => {
         postOrder();
-        
         setitemConfirmModal(true);
     }
 
@@ -107,7 +98,6 @@ const OrderForm = ({setItems, items}) => {
         putOrder();
         items.forEach(item => {
             let newItem = prepItem(item)
-            console.log(newItem);
             postItem(newItem);
          })
         setitemConfirmModal(false);
