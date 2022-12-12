@@ -13,14 +13,21 @@
 }
 
 .pad {
-    padding: 1vw;
+    padding: .5vw;
 
 }
+
+.click {
+    width: 100;
+}
+
 
 .t-row {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    padding: 1vh;
+    border-bottom: 1px solid gray;
 }
 
 .n-cell {
@@ -41,6 +48,7 @@
 
 .table {
     width: 33%;
+    font-size: .75vw;
 }
 
 .table-name{
@@ -51,5 +59,9 @@
 .data {
     height: 25vh;
     background-color: aliceblue;
-    overflow-y: auto;
+    overflow-y: scroll;
+}
+
+.data button {
+    padding: .25vh;
 }

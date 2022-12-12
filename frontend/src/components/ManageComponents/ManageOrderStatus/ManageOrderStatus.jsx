@@ -2,7 +2,7 @@ import axios from "axios";
 import useConfig from "../../../hooks/useConfig";
 
 
-const ManageOrderStatus = ({order,filter,getOrders}) => {
+const ManageOrderStatus = ({order,filter,getOrders, setcurrentOrder}) => {
     const config = useConfig();
     
 
@@ -14,13 +14,17 @@ const ManageOrderStatus = ({order,filter,getOrders}) => {
         getOrders();
     }
 
-   
+    const handleClick = () => {
+        setcurrentOrder(order);
+    }
+
+
     return (  
         <>
-        <div className="n-cell"> {order.id}</div>
-        <div className="c-cell"> {order.user.last_name}</div>
-        <div className="d-cell"> {order.deliver_date.slice(5)} </div>
-         
+            <div className="n-cell"> {order.id}</div>
+            <div className="c-cell"> {order.user.last_name}</div>
+            <div className="d-cell"> {order.deliver_date.slice(5)} </div>
+            
             {  filter === 'Pending' ? (
                 <div className="b-cell">
                 <button id = 'Accepted' onClick = {putOrder}>Accept</button>

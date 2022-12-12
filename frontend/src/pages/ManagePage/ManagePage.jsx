@@ -7,6 +7,7 @@ import "./ManagePage.css"
 const ManagePage = () => {
     const config = useConfig();
     const [orders, setorders] = useState();
+    const [currentOrder, setcurrentOrder] = useState();
 
     useEffect (()=> {
         getOrders()
@@ -23,8 +24,7 @@ const ManagePage = () => {
     return (
         <>
         <div className="page-container">
-
-        <ManageOrdersLists orders = {orders} setorders = {setorders} getOrders = {getOrders}/>
+        <ManageOrdersLists orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
         </div>
         </>
       );
