@@ -1,13 +1,14 @@
 import axios from "axios";
 import useConfig from "../../hooks/useConfig";
 import { useState,useEffect } from "react";
-import ManageOrdersLists from "../../components/ManageComponents/ManageOrdersLists/ManageOrdersLists";
+import ManageOrdersLists from "../../components/ManageComponents/OrderListComponents/ManageOrdersLists/ManageOrdersLists";
+import Manager from "../../components/ManageComponents/ManagerComponents/Manager/Manager";
 import "./ManagePage.css"
 
 const ManagePage = () => {
     const config = useConfig();
     const [orders, setorders] = useState();
-    const [currentOrder, setcurrentOrder] = useState();
+    const [currentOrder, setcurrentOrder] = useState({id:0});
 
     useEffect (()=> {
         getOrders()
@@ -24,7 +25,10 @@ const ManagePage = () => {
     return (
         <>
         <div className="page-container">
+            <div>CLANDER GOES HERE</div>
+            <div>{currentOrder.id}</div>
         <ManageOrdersLists orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
+        <Manager currentOrder={currentOrder}/>
         </div>
         </>
       );

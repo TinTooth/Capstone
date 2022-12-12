@@ -1,12 +1,10 @@
 import axios from "axios";
-import useConfig from "../../../hooks/useConfig";
+import useConfig from "../../../../hooks/useConfig";
 
 
 const ManageOrderStatus = ({order,filter,getOrders, setcurrentOrder}) => {
     const config = useConfig();
     
-
-
     async function putOrder(e) {
         order.status = e.target.id;
         console.log(order.status)
@@ -21,7 +19,7 @@ const ManageOrderStatus = ({order,filter,getOrders, setcurrentOrder}) => {
 
     return (  
         <>
-            <div className="n-cell"> {order.id}</div>
+            <div className="n-cell" onClick = {handleClick}> {order.id}</div>
             <div className="c-cell"> {order.user.last_name}</div>
             <div className="d-cell"> {order.deliver_date.slice(5)} </div>
             

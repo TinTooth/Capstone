@@ -32,6 +32,13 @@
 
 .n-cell {
     width: 10%;
+    cursor: pointer;
+   
+}
+
+.n-cell:hover {
+    background-color: aqua;
+    border-radius: 10px;
 }
 
 .c-cell {

@@ -1,0 +1,10 @@
+.manager-container {
+    margin: auto;
+    width: 75vw;
+   
+}
+
+.manager {
+    background-color: azure;
+    height: 35vh;
+}

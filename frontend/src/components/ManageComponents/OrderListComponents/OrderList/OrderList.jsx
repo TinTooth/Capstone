@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useDate from "../../../hooks/useDate"
+import useDate from "../../../../hooks/useDate"
 import ManageOrderStatus from "../ManageOrderStatus/ManageOrderStatus";
 import Table from 'react-bootstrap/Table';
 
@@ -23,7 +23,7 @@ const OrderList = ({orders, filter, setcurrentOrder, getOrders}) => {
                     <div className="n-cell"> # </div>
                     <div className="c-cell"> Customer </div>
                     <div className="d-cell"> Date </div>
-                    <div className="b-cell"></div>
+                    <div className="b-cell"> {filter} Orders</div>
             </div>
             <div className="data">
                 {  filteredOrders.map((o,i) => {

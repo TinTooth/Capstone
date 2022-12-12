@@ -1,0 +1,16 @@
+.items-container {
+    width: 20%;
+    background-color: gray;
+
+}
+
+.editor {
+    width: 60%;
+    background-color: lightblue;
+
+}
+
+.order-container {
+    width: 20%;
+    background-color: gray;
+}
