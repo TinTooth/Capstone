@@ -5,3 +5,4 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id','user','deliver_date','status', 'total_work_time','total_price','notes']
+        depth = 1

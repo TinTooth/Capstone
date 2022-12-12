@@ -1,0 +1,55 @@
+.order-lists {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.lists-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 75%;
+    background-color: rgb(108, 104, 104);
+}
+
+.pad {
+    padding: 1vw;
+
+}
+
+.t-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.n-cell {
+    width: 10%;
+}
+
+.c-cell {
+    width: 30%;
+}
+
+.d-cell {
+    width: 20%
+}
+
+.b-cell {
+    width: 40%;
+}
+
+.table {
+    width: 33%;
+}
+
+.table-name{
+    width: 33%;
+    text-align: center;
+}
+
+.data {
+    height: 25vh;
+    background-color: aliceblue;
+    overflow-y: auto;
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductSection.css"
 import Modal from "../../Util/Modal/Modal";
-import Menu from "../../Menu/Menu";
+import Menu from "../../HomeComponents/Menu/Menu"
 
 const ProductSection = ({thisref, productData ,images}) => {
     const navigate = useNavigate()

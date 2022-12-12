@@ -10,11 +10,7 @@ import "./OrderPage.css"
 const OrderPage = () => {
     const [user] = useAuth();
     const [items, setitems] = useState([]);
-    
 
-    const submitOrder = (order) => {
-        return
-    } 
 
     return user ? (
         <>

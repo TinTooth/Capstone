@@ -7,7 +7,7 @@ import Input from "../../Util/Input/Input";
 import Modal from "../../Util/Modal/Modal";
 import useConfig from "../../../hooks/useConfig";
 import ItemList from "../ItemsList/ItemList";
-import useCalc from "../../../hooks/useCalc";
+import useCalc from "../../../hooks/useCalc"
 import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
 import { useNavigate} from "react-router-dom";
 
@@ -118,7 +118,7 @@ const OrderForm = ({setItems, items}) => {
 
     const closeConfirmWindow = () => {
         setorderConfirmModal(false);
-        navigate("/")
+        navigate(`/`)
     }
 
     const [formData, handleInputChange,handleSubmit] = useCustomForm(order,createOrder)
