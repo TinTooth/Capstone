@@ -94,7 +94,8 @@ const OrderForm = ({setItems, items}) => {
             design_details: item.design_details,
             frosting: item.frosting,
             filling: item.filling,
-            cake_flavor: item.cake_flavor
+            cake_flavor: item.cake_flavor,
+            price: getPrice(item)
         }
         return result
     }   

@@ -3,10 +3,14 @@ import ProductManager from "../ProductManager/ProductManager";
 import OrderManager from "../OrderManager/OrderManager";
 import "./Manager.css"
 
+
 const Manager = ({currentOrder}) => {
     const [orderShow, setorderShow] = useState(true);
     const [itemShow, setitemShow] = useState(false);
     
+
+
+     
     const handleOrder = () => {
         setitemShow(false);
         setorderShow(true);

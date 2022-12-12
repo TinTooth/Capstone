@@ -6,7 +6,7 @@ import useCalc from "../../../hooks/useCalc";
 import Tooltip from 'react-bootstrap/Tooltip';
 
 
-const Item = ({item,i,setItems,items,noRemove}) => {
+const Item = ({item,i,setItems,items,noRemove,noDetails,setcurrentItem}) => {
     const [show, setShow] = useState(false);
     const target = useRef(null);
     const [getPrice] = useCalc();
@@ -15,6 +15,10 @@ const Item = ({item,i,setItems,items,noRemove}) => {
         items.splice(i,1);
         let newArray = [...items];
         setItems(newArray);
+    }
+
+    const selectItem = () => {
+      setcurrentItem(item);
     }
 
     const renderDetails = (props) => {
@@ -42,19 +46,10 @@ const Item = ({item,i,setItems,items,noRemove}) => {
         <td> {`$${getPrice(item)}`}</td>
         <td> 
             { noRemove === false && <button onClick = {removeItem}>REMOVE</button> }
-            {/* <OverlayTrigger
-               placement="right"
-               delay={{ show: 250, hide: 400 }}
-              overlay={renderDetails}
-              style = {{
-                backgroundColor:'black'
-                ...props.style
-              }}>
-              <Button variant="success">Details</Button>
-              </OverlayTrigger> */}
-            <Button variant ="primary" ref={target} onClick = {()=>setShow(!show)}>
+            { noDetails === false && <Button variant ="primary" ref={target} onClick = {()=>setShow(!show)}>
                 Details
-            </Button>
+            </Button>}
+            {noDetails === true && <button onClick = {selectItem}>EDIT</button>}
             <Overlay target={target.current} show={show} placement="right">
         {({ placement, arrowProps, show: _show, popper, ...props }) => (
           <div

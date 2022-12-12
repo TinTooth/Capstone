@@ -3,7 +3,7 @@ import Item from "../Item/Item";
 import "./itemList.css"
 import useCalc from "../../../hooks/useCalc";
 
-const ItemList = ({items, setItems, noRemove = false}) => {
+const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurrentItem}) => {
     const [total, setTotal] = useState(0);
     const [getPrice] = useCalc();
 
@@ -46,7 +46,7 @@ const ItemList = ({items, setItems, noRemove = false}) => {
                 {items.map((item ,i) =>{
                     return (
                         <tr key = {i}>
-                            <Item item = {item} i ={i} setItems = {setItems} items = {items} noRemove = {noRemove}/>                       
+                            <Item item = {item} i ={i} setItems = {setItems} items = {items} noRemove = {noRemove} noDetails = {noDetails}/>                       
                         </tr>
                         )
                     })}

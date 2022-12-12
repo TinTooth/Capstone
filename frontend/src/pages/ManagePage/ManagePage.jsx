@@ -25,8 +25,7 @@ const ManagePage = () => {
     return (
         <>
         <div className="page-container">
-            <div>CLANDER GOES HERE</div>
-            <div>{currentOrder.id}</div>
+            <div>CALANDER GOES HERE</div>
         <ManageOrdersLists orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
         <Manager currentOrder={currentOrder}/>
         </div>

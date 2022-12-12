@@ -27,7 +27,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
         addItem(formData)
         closeModal();
     }
-    const [formData, handleInputChange,handleSubmit] = useCustomForm(item,createItem)
+    const [formData, handleInputChange,handleSubmit] = useCustomForm(item,createItem);
 
     useEffect(()=>{
         getOptions();

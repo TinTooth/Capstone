@@ -1,13 +1,34 @@
+import ItemList from "../../../OrderComponents/ItemsList/ItemList";
 import "./OrderManager.css"
+import axios from "axios";
+import useConfig from "../../../../hooks/useConfig";
+import { useState,useEffect } from "react";
+import Editor from "./Editor/Editor";
 
 const OrderManager = ({show, currentOrder}) => {
+    const [orderItems,setorderItems] = useState([]);
+    const [editorShow, seteditorShow] = useState(true);
+    const config = useConfig();
+    const [currentItem, setcurrentItem] = useState();
+
+    useEffect (()=> {
+        getOrderItems()
+    },[currentOrder])
+
+    async function getOrderItems() {
+        let response = await axios.get(`http://127.0.0.1:8000/api/order/${currentOrder.id}/items/`,config);
+        setcurrentItem(response.data[0])
+        console.log(response.data[0])
+        setorderItems(response.data);
+    }
+
     return show ?( 
         <div className="manager container-no-wrap">
             <div className="items-container">
-            Items
+            <ItemList items = {orderItems} noDetails = {true} noRemove = {true} setcurrentItem = {setcurrentItem}/>
             </div>
             <div className="editor">
-                {currentOrder.id}
+                <Editor item = {currentItem} order = {currentOrder} editorShow = {editorShow}/>
             </div>
             <div className="order-container">
                 ORder

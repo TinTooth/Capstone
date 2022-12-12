@@ -11,3 +11,4 @@ class OrderItem(models.Model):
     frosting = models.CharField(max_length=100, default ="" )
     filling = models.CharField(max_length=100, default ="")
     design_details = models.TextField()
+    price = models.IntegerField(default=0)
