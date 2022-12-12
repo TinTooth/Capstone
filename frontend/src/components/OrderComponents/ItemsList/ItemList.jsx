@@ -46,7 +46,8 @@ const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurr
                 {items.map((item ,i) =>{
                     return (
                         <tr key = {i}>
-                            <Item item = {item} i ={i} setItems = {setItems} items = {items} noRemove = {noRemove} noDetails = {noDetails}/>                       
+                            <Item item = {item} i ={i} setItems = {setItems} setcurrentItem = {setcurrentItem}
+                             items = {items} noRemove = {noRemove} noDetails = {noDetails}/>                       
                         </tr>
                         )
                     })}
