@@ -12,7 +12,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
         product:product,
         order_id: 0,
         quantity: 1,
-        design_details: "Add Theme and Design Details Here as Well as Any Special Instructions for Lisa",
+        design_details: "Add Theme and Design Details (Colors, Theme...) Here as Well as Any Special Instructions for Lisa",
         cake_flavor: "NA",
         frosting: "NA",
         filling: "NA",

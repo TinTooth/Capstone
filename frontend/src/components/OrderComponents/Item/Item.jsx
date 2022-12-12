@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import useCalc from "../../../hooks/useCalc";
+import Tooltip from 'react-bootstrap/Tooltip';
 
-const Item = ({item,i,setItems,items}) => {
+
+const Item = ({item,i,setItems,items,noRemove}) => {
     const [show, setShow] = useState(false);
     const target = useRef(null);
     const [getPrice] = useCalc();
@@ -13,6 +16,24 @@ const Item = ({item,i,setItems,items}) => {
         let newArray = [...items];
         setItems(newArray);
     }
+
+    const renderDetails = (props) => {
+      return (
+        <Tooltip id ="button-tooltip" 
+         {...props}>
+
+      <div>Item:  {item.product.name}</div>
+      {item.product.type === 'cake' &&
+      <div>Size:  {item.product.description}</div>}
+      <div>Frosting:  {item.frosting}</div>
+      <div>Cake Flavor:  {item.cake_flavor}</div>
+      <div>Filling:  {item.filling}</div>
+      <div>Details:</div>
+      <div>{item.design_details}</div>
+  
+      </Tooltip>
+      )
+    }
     
     return ( 
        <>
@@ -20,7 +41,17 @@ const Item = ({item,i,setItems,items}) => {
         <td> {item.product.name}</td>
         <td> {`$${getPrice(item)}`}</td>
         <td> 
-            <button onClick = {removeItem}>REMOVE</button>
+            { noRemove === false && <button onClick = {removeItem}>REMOVE</button> }
+            {/* <OverlayTrigger
+               placement="right"
+               delay={{ show: 250, hide: 400 }}
+              overlay={renderDetails}
+              style = {{
+                backgroundColor:'black'
+                ...props.style
+              }}>
+              <Button variant="success">Details</Button>
+              </OverlayTrigger> */}
             <Button variant ="primary" ref={target} onClick = {()=>setShow(!show)}>
                 Details
             </Button>
@@ -30,12 +61,13 @@ const Item = ({item,i,setItems,items}) => {
             {...props}
             style={{
               position: 'absolute',
-              backgroundColor: 'rgba(255, 100, 100, 0.85)',
+              backgroundColor: '#3d4757',
               padding: '2px 10px',
               color: 'white',
               zIndex: 100,
               borderRadius: 3,
               maxWidth: 250,
+              padding: 20,
               ...props.style,
             }}
           >
@@ -49,8 +81,8 @@ const Item = ({item,i,setItems,items}) => {
             <div>Filling:  {item.filling}</div>
             <div>Details:</div>
             <div>{item.design_details}</div>
-          </div>
-        )}
+          </div> 
+         )}
       </Overlay>
             </td>
         

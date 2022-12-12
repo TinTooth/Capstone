@@ -1,0 +1,22 @@
+.confirmation-container {
+    width: 65vw;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+.order-details-container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.detail {
+    width: 100%;
+}

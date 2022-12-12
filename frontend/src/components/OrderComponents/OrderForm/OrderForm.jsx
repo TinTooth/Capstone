@@ -8,6 +8,8 @@ import Modal from "../../Util/Modal/Modal";
 import useConfig from "../../../hooks/useConfig";
 import ItemList from "../ItemsList/ItemList";
 import useCalc from "../../../hooks/useCalc";
+import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
+import { useNavigate} from "react-router-dom";
 
 
 
@@ -16,8 +18,10 @@ const OrderForm = ({setItems, items}) => {
     const [currentOrder,setcurrentOrder] = useState([]);
     const [options,setOptions] = useState([]);
     const [itemConfirmModal, setitemConfirmModal] = useState(false);
+    const [orderConfirmModal, setorderConfirmModal] = useState(false);
     const config = useConfig();
     const [getPrice, getWorkTime] = useCalc();
+    const navigate = useNavigate();
     let order = {
         user:1,
         deliver_date: "",
@@ -79,6 +83,7 @@ const OrderForm = ({setItems, items}) => {
     const createOrder= () => {
         postOrder();
         setitemConfirmModal(true);
+
     }
 
     const prepItem = (item) => {
@@ -99,19 +104,24 @@ const OrderForm = ({setItems, items}) => {
         items.forEach(item => {
             let newItem = prepItem(item)
             postItem(newItem);
-         })
+        })
         setitemConfirmModal(false);
-
+        setorderConfirmModal(true);
     }
 
     const handleModal = () => {
-        itemConfirmModal ? (setitemConfirmModal(false)):setitemConfirmModal(true);
+        setitemConfirmModal(false);
+        setorderConfirmModal(false);
+        // itemConfirmModal ? (setitemConfirmModal(false)):setitemConfirmModal(true);
+        // orderConfirmModal ? (setorderConfirmModal(false)):setorderConfirmModal(true);
     }
 
+    const closeConfirmWindow = () => {
+        setorderConfirmModal(false);
+        navigate("/")
+    }
 
     const [formData, handleInputChange,handleSubmit] = useCustomForm(order,createOrder)
-
-    
 
     return ( 
         <div className="form-container">
@@ -121,17 +131,19 @@ const OrderForm = ({setItems, items}) => {
                 <ProductList addItem={addItem} productName = {"Cookies"} products = {products}> </ProductList>
                 <ProductList addItem={addItem} productName = {"Goodies"} products = {products}></ProductList>
             </div>
+                <Input title = "Order Notes:" name ="notes" value = {formData.notes} onChange ={handleInputChange} textArea = {true} />
             <div className="input-container">
                 <Input type = "date" title = "Deliver Date:" name= "deliver_date" value = {formData.deliver_date} onChange={handleInputChange}/>
-                <Input title = "Order Notes:" name ="notes" value = {formData.notes} onChange ={handleInputChange} textArea = {true} />
+                <button onClick ={handleSubmit}>Submit Order Request</button> 
             </div>
-            <button onClick ={handleSubmit}>Submit Order Request</button> 
             <Modal title = "" modal = {itemConfirmModal} onClose = {handleModal}>
                 <div className="message">Please Confirm Items Below</div>
                 <ItemList items = {items} setItems = {setItems}></ItemList>
                 <button onClick = {handleModal}>CANCEL</button>
                 <button onClick = {createItems}>Confirm Items</button> 
             </Modal>
+
+            <Modal title = "Order Recieved!" modal = {orderConfirmModal} onClose ={closeConfirmWindow}> <OrderConfirmation items = {items} order = {currentOrder} close = {closeConfirmWindow}/></Modal>
         </div>
      );
 }
