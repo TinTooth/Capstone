@@ -119,7 +119,7 @@ const OrderForm = ({setItems, items}) => {
 
     const closeConfirmWindow = () => {
         setorderConfirmModal(false);
-        navigate(`/`)
+        // navigate(`/`)
     }
 
     const [formData, handleInputChange,handleSubmit] = useCustomForm(order,createOrder)
