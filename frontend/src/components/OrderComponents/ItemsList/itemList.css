@@ -1,5 +1,67 @@
 .item-list {
-    background-color: bisque;
-    width: 20%;
+   background-color: rgb(255, 255, 255);
+    width: 100%;
+    min-height: 20vh;
     text-align: center;
+}
+
+.heading {
+    padding: .2vw;
+    font-size: 1.2vw;
+}
+
+.styled-table button {
+    width: 100%;
+}
+
+
+.styled-table {
+    height: 80%;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1vw;
+    font-family: sans-serif;
+    min-height: 25vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #3d4757;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 2vh 1vh;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #d2d0d0;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #000000;
+}
+
+
+.total {
+    text-align: end;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 1vw;
+    background-color: #3d4757;
+    color: #ffffff;
+    
+}
+
+.table-title {
+  margin: auto;
+  background-color: black;
 }

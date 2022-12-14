@@ -9,3 +9,4 @@ class Order(models.Model):
     total_price = models.IntegerField()
     total_work_time = models.IntegerField()
     notes = models.TextField()
+    adjusted_price = models.IntegerField(default = 0)

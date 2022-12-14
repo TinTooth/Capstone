@@ -56,6 +56,7 @@ const OrderForm = ({setItems, items}) => {
         updatedOrder.status = "Pending";
         updatedOrder.total_price = getTotalPrice();
         updatedOrder.total_work_time = getWorkTime(items);
+        updatedOrder.adjusted_price = updatedOrder.total_price;
         console.log(updatedOrder);
         const response = await axios.put(`http://127.0.0.1:8000/api/order/${updatedOrder.id}/`,updatedOrder,config)
         setcurrentOrder(response.data)

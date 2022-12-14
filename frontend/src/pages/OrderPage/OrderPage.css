@@ -1,3 +1,7 @@
 .login-message {
     text-align: center;
 }
+
+.item-list-container {
+    width: 20%
+}

@@ -18,7 +18,10 @@ const OrderPage = () => {
         <div className="container-no-wrap">
 
         <OrderForm setItems={setitems}  items = {items}/>
+        <div className="item-list-container">
+
         <ItemList items = {items} setItems = {setitems}></ItemList>
+        </div>
         
         </div>
         </>  

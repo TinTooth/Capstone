@@ -6,7 +6,7 @@ import { useState,useEffect } from "react";
 import Editor from "./Editor/Editor";
 
 
-const OrderManager = ({show, currentOrder}) => {
+const OrderManager = ({show, currentOrder, getOrders}) => {
     const [orderItems,setorderItems] = useState([]);
     const [editorShow, seteditorShow] = useState(true);
     const config = useConfig();
@@ -23,9 +23,10 @@ const OrderManager = ({show, currentOrder}) => {
         setorderItems(response.data);
     }
 
-
-
-    
+    const showOrderEdit = () => {
+        seteditorShow(true);
+        setcurrentItem('')
+    }
 
 
     return show ?( 
@@ -35,12 +36,17 @@ const OrderManager = ({show, currentOrder}) => {
             </div>
             <div className="editor">
                 <Editor item = {currentItem} order = {currentOrder} items = {orderItems} editorShow = {editorShow}
-                getItems = {getOrderItems}/>
+                getItems = {getOrderItems} getOrders = {getOrders}/>
             </div>
             <div className="order-container">
-                ORder
+                <div className="order">
+                { currentOrder.id != 0 ? (<div className="order-detail"> Order # {currentOrder.id}</div>):null}
+                { currentOrder.id != 0 ? (<div className="order-detail"> {currentOrder.user.first_name} {currentOrder.user.last_name}</div>):null}
+                { currentOrder.id != 0 ? (<button onClick = {showOrderEdit}>Details</button>):null}
+                </div>
             </div>
         </div>
+
 
      ) :null;
 }

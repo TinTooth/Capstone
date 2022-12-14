@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import Item from "../Item/Item";
 import "./itemList.css"
 import useCalc from "../../../hooks/useCalc";
+import Table from "react-bootstrap/esm/Table";
 
 const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurrentItem}) => {
     const [total, setTotal] = useState(0);
@@ -30,14 +31,14 @@ const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurr
     return items.length ? (
         <>
         <div className="item-list">
-            <div> Order Items</div>
-            <table>
+        <div className='heading'>Order Items</div>
+            <table className="styled-table">
                 <thead>
                     <tr>
-                        <th> </th>
-                        <th> Item</th>
+                        <th > # </th>
+                        <th > Item</th>
                         <th> Price</th>
-                        <th> </th>
+                        <th > </th>
 
                     </tr>
                 </thead>
@@ -53,24 +54,16 @@ const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurr
                     })}
                 </tbody>
             </table>
-            <div>Total ${total}</div>
+            <div className="total">Total ${total}</div>
         </div>
         {/* <div onClick = {click}>TEST</div> */}
         </>
         
     ):<div className="item-list">
-        <div> Order Items</div>
-        <table>
-                <thead>
-                    <tr>
-                        <th> #</th>
-                        <th> Item</th>
-                        <th> Price</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-        </table>
-        <div>Total 0</div>
+          
+                <div className='heading'>Order Items</div>
+            
+    
 
     </div>;
 }

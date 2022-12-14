@@ -4,6 +4,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import useCalc from "../../../hooks/useCalc";
 import Tooltip from 'react-bootstrap/Tooltip';
+import "./Item.css"
 
 
 const Item = ({item,i,setItems,items,noRemove,noDetails,setcurrentItem}) => {
@@ -67,15 +68,15 @@ const Item = ({item,i,setItems,items,noRemove,noDetails,setcurrentItem}) => {
             }}
           >
 
-            <div>Item:  {item.product.name}</div>
+            <div className='detail'>Item:  {item.product.name}</div>
             {item.product.type === 'cake' &&
-            <div>Size:  {item.product.description}</div>
+            <div  className='detail'>Size:  {item.product.description}</div>
             }
-            <div>Frosting:  {item.frosting}</div>
-            <div>Cake Flavor:  {item.cake_flavor}</div>
-            <div>Filling:  {item.filling}</div>
+            <div className='detail'>Frosting:  {item.frosting}</div>
+            <div className='detail'>Cake Flavor:  {item.cake_flavor}</div>
+            <div className='detail'>Filling:  {item.filling}</div>
             <div>Details:</div>
-            <div>{item.design_details}</div>
+            <div className='details-border'>{item.design_details}</div>
           </div> 
          )}
       </Overlay>

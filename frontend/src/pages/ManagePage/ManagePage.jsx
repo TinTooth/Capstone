@@ -27,7 +27,7 @@ const ManagePage = () => {
         <div className="page-container">
             <div>CALANDER GOES HERE</div>
         <ManageOrdersLists orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
-        <Manager currentOrder={currentOrder}/>
+        <Manager currentOrder={currentOrder} getOrders = {getOrders} orders = {orders}/>
         </div>
         </>
       );
