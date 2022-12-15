@@ -10,9 +10,17 @@ from .serializers import OrderItemSerializer, OrderItemPostSerializer
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_all(request,order_pk):
+def get_all_byOrder(request,order_pk):
     if request.user.is_staff == True:
         result = OrderItem.objects.filter(order_id = order_pk)
+        serializer = OrderItemSerializer(result, many = True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_all(request,order_pk):
+    if request.user.is_staff == True:
+        result = OrderItem.objects.all()
         serializer = OrderItemSerializer(result, many = True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

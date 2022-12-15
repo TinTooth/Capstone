@@ -4,19 +4,14 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import "./WorkCalendar.css";
-import axios from 'axios';
 
 
-const WorkCalendar = ({orders,setcurrentOrder}) => {
-
+const WorkCalendar = ({orders,setcurrentOrder,setSelectedDate}) => {
     const eventClick = (e) => {
-      console.log(e.event.id)
+      let currentOrder = orders.filter(o => o.id == e.event.id);
+      setcurrentOrder(currentOrder[0])
     }
 
-
-
-
-  
     let getEvents = () => {     
         let eventsarray = []
         orders.forEach(order => {
@@ -33,21 +28,21 @@ const WorkCalendar = ({orders,setcurrentOrder}) => {
         return eventsarray
   }    
   
-  
-  
     return (
       <div className="calendar">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView="dayGridWeek"
+        initialView="dayGridMonth"
         height = "100%"
         headerToolbar={{
           center: 'dayGridMonth,dayGridWeek',
         }}
          events = {getEvents()}
+         dateClick={(e) => setSelectedDate(e.dateStr)}
          eventClick ={eventClick}
-
+        
       />
+      
     </div>
      );
 }

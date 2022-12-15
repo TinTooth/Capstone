@@ -73,8 +73,72 @@ const useDate = () => {
         return result
 
     }
+
+    const getDaysAheadTime = (input,orders) => {
+      let date = new Date(`${input}T00:00:00`)
+      let daysAhead = 6-date.getDay()
+      console.log(daysAhead)
+  }
+
+  const getItemsinRange = (items,date) => {
     
-    return [getDateString]
+  }
+
+  const getWorkTime = (items) => {
+    let result = 0;
+    
+    items.forEach(item => {
+        if( item.product.pricebydozen){
+            result += (item.quantity/12)*item.product.work_time;
+        }
+        else {
+            result += item.quantity*item.product.work_time;
+        }
+    });
+    return result 
+}
+
+
+  const getWeekWorkTime = (input,items) => {
+    let date = new Date(`${input}T00:00:00`)
+    let daysAhead = 6-date.getDay()
+    let daysBehind = 6-daysAhead
+    let acceptedOrders = items.filter(item => item.order.status === "Accepted")
+    let itemsInRange = []
+    let iDate = new Date();
+    for (let i = 0; i <=daysAhead; i++) {
+        iDate.setDate(date.getDate() + i)
+        let itemsinDay = acceptedOrders.filter(item => item.order.deliver_date == iDate.toJSON().slice(0,10))
+        itemsInRange = [...itemsInRange,...itemsinDay]
+    }
+    for (let i = 1; i <= daysBehind; i++) {
+      iDate.setDate(date.getDate() - i)
+      let itemsinDay = acceptedOrders.filter(item => item.order.deliver_date == iDate.toJSON().slice(0,10))
+      itemsInRange = [...itemsInRange,...itemsinDay]
+    }
+    return getWorkTime(itemsInRange);
+  }
+
+  const getLikelihood = (totalHours) => {
+    let result = '';
+    if (totalHours < 15) {
+      result = 'Lisa Will Likey Be Able to Fullfill this Order!';
+    }
+    else if (totalHours > 15 && totalHours < 25) {
+      result = 'Pretty Busy Week for Lisa! She may not be able to accept this Order';
+    }
+    else if (totalHours > 25) {
+      result = 'That is an Extremely busy week for Lisa. It is Highly Unlikely She will be able to accept your order';
+    }
+  
+
+    return result
+  }
+
+
+
+    
+  return [getDateString,getWeekWorkTime,getLikelihood]
 }
  
 export default useDate;

@@ -21,7 +21,6 @@ const useCalc = () => {
                 result += item.quantity*item.product.work_time;
             }
         });
-        console.log(result)
         return result 
     }
 
