@@ -17,12 +17,15 @@
 
 .styled-table {
     height: 80%;
+    max-height: 50vh;
     width: 100%;
     border-collapse: collapse;
     font-size: 1vw;
     font-family: sans-serif;
     min-height: 25vh;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y:scroll;
+    display:block;
 }
 
 .styled-table thead tr {

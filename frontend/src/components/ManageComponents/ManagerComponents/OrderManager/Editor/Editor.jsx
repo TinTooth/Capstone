@@ -15,16 +15,16 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
 
    
     async function putItem() {
-        let response = await axios.put(`http://127.0.0.1:8000/api/order/1/items/manage/${item.id}/`,formData,config)
+        let response = await axios.put(`http://127.0.0.1:8000/api/order/${order.id}/items/manage/${item.id}/`,formData,config)
         getItems();
     }
 
     async function deleteItem() {
-        let response = await axios.delete(`http://127.0.0.1:8000/api/order/1/items/manage/${item.id}/`,config)
-        if (response.status === 204) {
-            getItems();
-            setitemDeleteShow(true)
-        }
+        console.log(item)
+        let response = await axios.delete(`http://127.0.0.1:8000/api/order/${order.id}/items/manage/${item.id}/`,config)
+        getItems();
+        setitemDeleteShow(true)
+    
     }
     async function putOrder() {
         let updatedOrder = order;
@@ -82,9 +82,9 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
             <div className="button-row">
 
             <button type = 'submit'>Save Changes</button>
-            <button className="warning" onClick ={deleteItem}>DELETE</button>
             </div>
         </form> 
+            <button className="warning" onClick ={deleteItem}>DELETE</button>
         </div>
         </> 
     ):  order.id && editorShow ?(
@@ -97,9 +97,9 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
             <Input textArea = {true} title = 'Notes:' name = 'notes' value = {formData2.notes} onChange = {handleInputChange2}/>
             <div className="button-row">
             <button type = 'submit'>Save Changes</button>
-            <button className="warning" onClick ={deleteOrder}>DELETE</button>
             </div>
         </form> 
+            {/* <button className="warning" onClick ={deleteOrder}>DELETE</button> */}
         </div>
     ): <div>Please Select an Order</div>;
 }

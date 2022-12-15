@@ -36,7 +36,6 @@ def manage(request,pk,order_pk):
         serializer = OrderItemSerializer(result)
         return Response(serializer.data, status=status.HTTP_200_OK)
     if request.method == 'PUT' and request.user.is_staff == True:
-       
         serializer = OrderItemSerializer(result,data = request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()

@@ -4,10 +4,13 @@ import { useState,useEffect } from "react";
 import ManageOrdersLists from "../../components/ManageComponents/OrderListComponents/ManageOrdersLists/ManageOrdersLists";
 import Manager from "../../components/ManageComponents/ManagerComponents/Manager/Manager";
 import "./ManagePage.css"
+import WorkCalendar from "../../components/ManageComponents/CalendarComponents/WorkCalendar/WorkCalendar";
+import NavBar from "../../components/NavBar/NavBar.jsx"
+
 
 const ManagePage = () => {
     const config = useConfig();
-    const [orders, setorders] = useState();
+    const [orders, setorders] = useState([]);
     const [currentOrder, setcurrentOrder] = useState({id:0});
 
     useEffect (()=> {
@@ -24,8 +27,9 @@ const ManagePage = () => {
 
     return (
         <>
+        <NavBar/>
         <div className="page-container">
-            <div>CALANDER GOES HERE</div>
+            <WorkCalendar orders = {orders}/>
         <ManageOrdersLists orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
         <Manager currentOrder={currentOrder} getOrders = {getOrders} orders = {orders}/>
         </div>
