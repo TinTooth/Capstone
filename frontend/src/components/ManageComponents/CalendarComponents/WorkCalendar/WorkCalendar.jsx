@@ -7,25 +7,27 @@ import "./WorkCalendar.css";
 
 
 const WorkCalendar = ({orders,setcurrentOrder,setSelectedDate}) => {
-    const eventClick = (e) => {
-      let currentOrder = orders.filter(o => o.id == e.event.id);
-      setcurrentOrder(currentOrder[0])
-    }
+   
+  
+  const eventClick = (e) => {
+    let currentOrder = orders.filter(o => o.id == e.event.id);
+    setcurrentOrder(currentOrder[0])
+  }
 
-    let getEvents = () => {     
-        let eventsarray = []
-        orders.forEach(order => {
-        if (order.status === "Accepted") {
-          let newEvent = { 
-            id: order.id, 
-            title:`${order.user.first_name} ${order.user.last_name}`,
-            start: order.deliver_date
-            }
-          eventsarray.push(newEvent);
-        }});
-        ;
-        
-        return eventsarray
+  const getEvents = () => {     
+      let eventsarray = []
+      orders.forEach(order => {
+      if (order.status === "Accepted") {
+        let newEvent = { 
+          id: order.id, 
+          title:`${order.user.first_name} ${order.user.last_name}`,
+          start: order.deliver_date
+        }
+        eventsarray.push(newEvent);
+      }});
+      
+      
+      return eventsarray
   }    
   
     return (

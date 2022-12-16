@@ -1,6 +1,5 @@
 const useDate = () => {
-    
-    
+  
     const getDay = (input) =>{
         let day = "";
         switch (new Date(`${input}T00:00:00`).getDay()) {
@@ -65,7 +64,6 @@ const useDate = () => {
           return day
     }
     
-    
     const getDateString = (input) => {
         let day = getDay(input);
         let month = getMonth(input)
@@ -73,16 +71,6 @@ const useDate = () => {
         return result
 
     }
-
-    const getDaysAheadTime = (input,orders) => {
-      let date = new Date(`${input}T00:00:00`)
-      let daysAhead = 6-date.getDay()
-      console.log(daysAhead)
-  }
-
-  const getItemsinRange = (items,date) => {
-    
-  }
 
   const getWorkTime = (items) => {
     let result = 0;
