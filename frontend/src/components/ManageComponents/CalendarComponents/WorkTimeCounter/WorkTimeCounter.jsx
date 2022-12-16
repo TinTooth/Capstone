@@ -9,7 +9,7 @@ const WorkTimeCounter = ({selectedDate,items}) => {
    
     useEffect (() => {
         updateBox() 
-    },[selectedDate])
+    },[selectedDate,items])
    
     const updateBox = () => {
         settotalTime(getWeekWorkTime(selectedDate,items));

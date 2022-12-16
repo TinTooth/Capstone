@@ -18,8 +18,12 @@ const ManagePage = () => {
 
     useEffect (()=> {
         getOrders();
-        getItems();
+        // getItems();
     },[]) 
+
+    useEffect(()=> {
+        getItems();
+    },[orders])
 
     
     async function getOrders() {

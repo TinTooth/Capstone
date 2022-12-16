@@ -28,7 +28,6 @@ def get_all(request,order_pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create(request,order_pk):
-    print(request.data)
     serializer = OrderItemPostSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
         serializer.save()

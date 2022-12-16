@@ -93,7 +93,7 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
             <form onSubmit = {handleSubmit2}>
             <Input type = "date" title = 'Deliver Date:' name = 'deliver_date' value = {formData2.deliver_date} onChange = {handleInputChange2}/>
             <Input title = 'Total Work Time:' name = 'total_work_time' value = {formData2.total_work_time} onChange = {handleInputChange2}/>
-            <Input title = 'Adjusted Price:' name = 'adjusted_price' value = {formData2.adjusted_price} onChange = {handleInputChange2}/>
+            <Input title = 'Price Adjustment:' name = 'adjusted_price' value = {formData2.adjusted_price} onChange = {handleInputChange2}/>
             <Input textArea = {true} title = 'Notes:' name = 'notes' value = {formData2.notes} onChange = {handleInputChange2}/>
             <div className="button-row">
             <button type = 'submit'>Save Changes</button>

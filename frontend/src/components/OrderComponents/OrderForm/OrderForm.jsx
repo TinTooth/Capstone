@@ -21,7 +21,6 @@ const OrderForm = ({setItems, items}) => {
     const [orderConfirmModal, setorderConfirmModal] = useState(false);
     const config = useConfig();
     const [getPrice, getWorkTime] = useCalc();
-    const navigate = useNavigate();
     let order = {
         user:1,
         deliver_date: "",
@@ -43,7 +42,6 @@ const OrderForm = ({setItems, items}) => {
 
     async function postItem(item) {
         const response = await axios.post(`http://127.0.0.1:8000/api/order/${currentOrder.id}/items/manage/`,item,config)
-        setcurrentOrder(response.data)
     }
     
     async function postOrder() {
@@ -56,9 +54,8 @@ const OrderForm = ({setItems, items}) => {
         updatedOrder.status = "Pending";
         updatedOrder.total_price = getTotalPrice();
         updatedOrder.total_work_time = getWorkTime(items);
-        updatedOrder.adjusted_price = updatedOrder.total_price;
+        updatedOrder.adjusted_price = 0;
         updatedOrder.user = currentOrder.user.id
-        console.log(updatedOrder);
         const response = await axios.put(`http://127.0.0.1:8000/api/order/${updatedOrder.id}/`,updatedOrder,config)
         setcurrentOrder(response.data)
     }
@@ -115,13 +112,11 @@ const OrderForm = ({setItems, items}) => {
     const handleModal = () => {
         setitemConfirmModal(false);
         setorderConfirmModal(false);
-        // itemConfirmModal ? (setitemConfirmModal(false)):setitemConfirmModal(true);
-        // orderConfirmModal ? (setorderConfirmModal(false)):setorderConfirmModal(true);
+       
     }
 
     const closeConfirmWindow = () => {
         setorderConfirmModal(false);
-        // navigate(`/`)
     }
 
     const [formData, handleInputChange,handleSubmit] = useCustomForm(order,createOrder)

@@ -86,7 +86,6 @@ const useDate = () => {
     return result 
 }
 
-
   const getWeekWorkTime = (input,items) => {
     let date = new Date(`${input}T00:00:00`)
     let daysAhead = 6-date.getDay()
@@ -110,13 +109,13 @@ const useDate = () => {
   const getLikelihood = (totalHours) => {
     let result = '';
     if (totalHours < 15) {
-      result = 'Lisa Will Likey Be Able to Fullfill this Order!';
+      result = 'Lisa Will Likey Be Able to Fullfill this Order! Either Way, she will reach out soon to let you know';
     }
     else if (totalHours > 15 && totalHours < 25) {
-      result = 'Pretty Busy Week for Lisa! She may not be able to accept this Order';
+      result = 'Pretty Busy Week for Lisa! She may not be able to accept this Order. Either Way, she will reach out soon to let you know';
     }
     else if (totalHours > 25) {
-      result = 'That is an Extremely busy week for Lisa. It is Highly Unlikely She will be able to accept your order';
+      result = 'That is an Extremely busy week for Lisa. It is Highly Unlikely She will be able to accept your order. Either Way, she will reach out soon to let you know';
     }
   
 
@@ -126,7 +125,7 @@ const useDate = () => {
 
 
     
-  return [getDateString,getWeekWorkTime,getLikelihood]
+  return [getDateString,getWeekWorkTime,getLikelihood,getWorkTime]
 }
  
 export default useDate;
