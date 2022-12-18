@@ -9,11 +9,12 @@ li {
 }
 
 .navBar {
-  background: steelblue;
-  box-shadow: 4px 2px 5px gray;
+  background: #3C4F6D;
+  /* box-shadow: 4px 2px 5px gray; */
   color: white;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   padding: 1.5rem 2rem;
+  height: 10vh;
 }
 
 .navBar button {
@@ -31,5 +32,6 @@ li {
 
 .brand {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 4.5vh;
+
 }

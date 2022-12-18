@@ -9,7 +9,7 @@ const ProductList = ({addItem, productName,products}) => {
         <>
         
         <div className="product-list-container">
-            <div className="product-heading">{productName}</div>
+            <div className="product-heading lob2">{productName}</div>
             {products.map((p,i) =>{
                 return p.type === productName? (
                     <div className="product-row" key ={i}>

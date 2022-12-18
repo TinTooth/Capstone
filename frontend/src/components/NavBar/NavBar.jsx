@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="navBar">
       <ul>
-        <li className="brand">
+        <li className="brand lob2">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>Blue Fox Bakery</b>
           </Link>

@@ -5,6 +5,7 @@ import axios from "axios";
 import LandingSection from "../../components/HomeComponents/LandingSection/LandingSection.jsx";
 import ImageBar from "../../components/HomeComponents/ImageBar/ImageBar.jsx";
 import ProductSection from "../../components/HomeComponents/ProductSection/ProductSection.jsx";
+import Footer from "../../components/Footer/Footer.jsx"
 
 // IMAGES
 
@@ -72,6 +73,7 @@ const HomePage = () => {
     <ProductSection thisref = {cupcakeRef} productData = {cupcakeProducts} images = {cupcakeImages} />
     <ProductSection thisref = {cookieRef} productData = {cookieProducts} images = {cookieImages} />
     <ProductSection thisref = {goodiesRef} productData = {goodieProducts} images = {goodieImages} />
+    <Footer/>
     </>
     );
 };

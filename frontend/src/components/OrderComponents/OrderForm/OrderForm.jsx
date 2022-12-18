@@ -29,7 +29,7 @@ const OrderForm = ({setItems, items}) => {
         status: "Items Not Confirmed",
         total_work_time: 0,
         total_price: 0,
-        notes:"Write general notes about the order here or anything else you would like to tell her. Who is this for? What kind of Event?"
+        notes:" "
     }
     
     useEffect(()=>{
@@ -142,10 +142,18 @@ const OrderForm = ({setItems, items}) => {
                 <ProductList addItem={addItem} productName = {"Cookies"} products = {products}> </ProductList>
                 <ProductList addItem={addItem} productName = {"Goodies"} products = {products}></ProductList>
             </div>
-                <Input title = "Order Notes:" name ="notes" value = {formData.notes} onChange ={handleInputChange} textArea = {true} />
-            <div className="input-container">
-                <Input type = "date" title = "Deliver Date:" name= "deliver_date" value = {formData.deliver_date} onChange={handleInputChange}/>
-                <button onClick ={handleSubmit}>Submit Order Request</button> 
+            <div className="column-row">
+                <div className="column-form1">
+                    <Input title = "Order Notes:" name ="notes" value = {formData.notes} onChange ={handleInputChange} textArea = {true} />
+                <div className="notes">Write general notes about the order here or anything else you would like to tell her. Who is this for? What kind of Event? </div>
+                </div>
+                <div className="column-form1">
+                        <div className="date">
+                            <Input type = "date" title = "Deliver Date:" name= "deliver_date" value = {formData.deliver_date} onChange={handleInputChange}/>
+                        </div>
+                        <button onClick ={handleSubmit}>Submit Order Request</button> 
+                    
+                </div>
             </div>
             <Modal title = "" modal = {itemConfirmModal} onClose = {handleModal}>
                 <div className="message">Please Confirm Items Below</div>
@@ -153,7 +161,6 @@ const OrderForm = ({setItems, items}) => {
                 <button onClick = {handleModal}>CANCEL</button>
                 <button onClick = {createItems}>Confirm Items</button> 
             </Modal>
-
             <Modal title = "Order Recieved!" modal = {orderConfirmModal} onClose ={closeConfirmWindow}> <OrderConfirmation items = {items} order = {currentOrder} close = {closeConfirmWindow}/></Modal>
             <Modal title = "Invalid Form" modal = {warningModal} onClose ={()=> setwarningModal(false)}>{warningMessage} <button onClick = {()=>setwarningModal(false)}>Close</button></Modal>
         </div>
