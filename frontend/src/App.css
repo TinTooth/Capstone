@@ -52,9 +52,9 @@ p {
 }
 
 button {
-  background-color: transparent;
-  border: 2px solid steelblue;
-  color: black;
+  background-color: #3C4F6D;
+  border: none;
+  color: aliceblue;
   font-size: 1rem;
   font-family: inherit;
   padding: 0.5rem 0.5rem;
@@ -63,6 +63,17 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
+  background-color: steelblue;
+}
+
+.form-container button {
+  background-color: #3C4F6D;
+  border: none;
+  color: aliceblue;
+  padding: 2%;
+}
+
+.form-container button:hover {
   background-color: steelblue;
 }
 

@@ -15,11 +15,10 @@ const OrderPage = () => {
     return user ? (
         <>
         <NavBar></NavBar>
-        <div className="container-no-wrap b">
+        <div className="b">
 
             <OrderForm setItems={setitems}  items = {items}/>
             <div className="item-list-container">
-
             <ItemList items = {items} setItems = {setitems}></ItemList>
             </div>
             

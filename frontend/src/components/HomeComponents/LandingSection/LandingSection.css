@@ -6,6 +6,7 @@
 
 .section-container button {
     border: none;
+    background-color: transparent;
     font-size: x-large;
     color: aliceblue;
     font-family: 'Lobster Two';

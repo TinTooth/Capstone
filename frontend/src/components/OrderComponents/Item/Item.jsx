@@ -42,16 +42,18 @@ const Item = ({item,i,setItems,items,noRemove,noDetails,setcurrentItem}) => {
     
     return ( 
        <>
-        <td> {item.quantity}</td>
-        <td> {item.product.name}</td>
-        <td> {`$${getPrice(item)}`}</td>
-        <td> 
+        <div className='n'> {item.quantity}</div>
+        <div className='i'> {item.product.name}</div>
+        <div className='p'> {`$${getPrice(item)}`}</div>
+        <div className='b2'> 
+          <div className="button-row2">
+
             { noRemove === false && <button onClick = {removeItem}>REMOVE</button> }
             { noDetails === false && <Button variant ="primary" ref={target} onClick = {()=>setShow(!show)}>
                 Details
             </Button>}
             {noDetails === true && <button onClick = {selectItem}>EDIT</button>}
-            <Overlay target={target.current} show={show} placement="right">
+            <Overlay target={target.current} show={show} placement="bottom">
         {({ placement, arrowProps, show: _show, popper, ...props }) => (
           <div
             {...props}
@@ -71,7 +73,7 @@ const Item = ({item,i,setItems,items,noRemove,noDetails,setcurrentItem}) => {
             <div className='detail'>Item:  {item.product.name}</div>
             {item.product.type === 'cake' &&
             <div  className='detail'>Size:  {item.product.description}</div>
-            }
+          }
             <div className='detail'>Frosting:  {item.frosting}</div>
             <div className='detail'>Cake Flavor:  {item.cake_flavor}</div>
             <div className='detail'>Filling:  {item.filling}</div>
@@ -80,7 +82,8 @@ const Item = ({item,i,setItems,items,noRemove,noDetails,setcurrentItem}) => {
           </div> 
          )}
       </Overlay>
-            </td>
+            </div>
+         </div>
         
        </> 
     );

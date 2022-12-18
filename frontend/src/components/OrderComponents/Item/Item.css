@@ -7,3 +7,14 @@
     border:1px solid #d2d0d0;
     padding: 1vw;
 }
+
+
+.button-row2 {
+    display: flex;
+    flex-wrap:wrap ;
+    flex-direction: column;
+}
+
+.button-row2 button {
+    padding: 2%;
+}

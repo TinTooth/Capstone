@@ -8,10 +8,6 @@ const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurr
     const [total, setTotal] = useState(0);
     const [getPrice] = useCalc();
 
-    const click = () => {
-        console.log(items);
-    }
-
     useEffect (()=>{
         getTotal();
     },[items])
@@ -31,29 +27,24 @@ const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurr
     return items.length ? (
         <>
         <div className="item-list">
-        <div className='heading'>Order Items</div>
-            <table className="styled-table">
-                <thead>
-                    <tr>
-                        <th > # </th>
-                        <th > Item</th>
-                        <th> Price</th>
-                        <th > </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
+            <div className='heading lob2'>Order Items</div>
+            <div className="t-row2 column-names">
+                <div className="n"> # </div>
+                <div className="i"> Item</div>
+                <div className="p"> Price</div>
+                <div className="b2"> </div>
+            </div>
+            
+            <div className="data2">
                 {items.map((item ,i) =>{
                     return (
-                        <tr key = {i}>
+                        <div className="t-row2" key = {i}>
                             <Item item = {item} i ={i} setItems = {setItems} setcurrentItem = {setcurrentItem}
                              items = {items} noRemove = {noRemove} noDetails = {noDetails}/>                       
-                        </tr>
+                        </div>
                         )
                     })}
-                </tbody>
-            </table>
+                </div>
             <div className="total">Total ${total}</div>
         </div>
         {/* <div onClick = {click}>TEST</div> */}
@@ -61,7 +52,8 @@ const ItemList = ({items, setItems, noRemove = false, noDetails = false, setcurr
         
     ):<div className="item-list">
           
-                <div className='heading'>Order Items</div>
+        <div className='heading lob2'>Order Items</div>
+        {/* <div className="note"> No Items Yet</div> */}
             
     
 
