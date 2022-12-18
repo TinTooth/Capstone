@@ -8,8 +8,16 @@
   box-sizing: inherit;
 }
 
+.lob2 {
+  font-family:'Lobster Two';
+}
+
+.lg {
+  color: #69816C;
+}
+
 body {
-  background-color: #768397;
+  background-color: #2b3547;
 }
 
 .border-top-darkgray {
@@ -22,7 +30,7 @@ body {
 }
 
 .divider {
-  background-color: #3d4757;
+  background-color: #818181;
   height: 4vh;
 }
 

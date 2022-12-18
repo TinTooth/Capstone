@@ -3,21 +3,21 @@ import useDate from "../../../../hooks/useDate"
 import ManageOrderStatus from "../ManageOrderStatus/ManageOrderStatus";
 import Table from 'react-bootstrap/Table';
 
-const OrderList = ({orders, filter, setcurrentOrder, getOrders}) => {
+const OrderList = ({orders, filter, setcurrentOrder, getOrders, selectedDate}) => {
     const [filteredOrders, setfilteredOrders] = useState([]);
-    const [getdatestring] = useDate();
+    const [getDateString,getWeekWorkTime,getLikelihood,getWorkTime, getMonth, getDay] = useDate()
     
     useEffect(() => {
         filterOrders();
-    },[orders])
+    },[orders,selectedDate])
 
     const filterOrders = () => {
-        let results = orders.filter(o => o.status === filter)
+        let results = orders.filter(o => o.status === filter && o.deliver_date[5] === selectedDate[5] && o.deliver_date[6] === selectedDate[6])
         setfilteredOrders(results)
     }
 
   
-    return ( 
+    return filteredOrders.length ? ( 
         <div className="table">
             <div className="t-row">
                     <div className="n-cell"> # </div>
@@ -36,7 +36,10 @@ const OrderList = ({orders, filter, setcurrentOrder, getOrders}) => {
                 }
             </div>
         </div>
-     );
+     ):
+     <div className="table">
+           <div>No {filter} Orders for {getMonth(selectedDate)}</div>
+        </div> ;
 }
  
 export default OrderList;

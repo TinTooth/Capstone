@@ -9,7 +9,7 @@ import image1 from "../../../Images/butterflycookies.jpeg"
 const ImageBar = () => {
     return ( 
         <>
-        <div className="divider"></div>
+        {/* <div className="divider"></div> */}
         <div className="image-bar">
             <div className="image-container">
                 <img src = {image1} alt="image1" />

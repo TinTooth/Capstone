@@ -125,7 +125,7 @@ const useDate = () => {
 
 
     
-  return [getDateString,getWeekWorkTime,getLikelihood,getWorkTime]
+  return [getDateString,getWeekWorkTime,getLikelihood,getWorkTime, getMonth, getDay]
 }
  
 export default useDate;

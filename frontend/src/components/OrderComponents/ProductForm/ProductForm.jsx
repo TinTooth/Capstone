@@ -2,31 +2,56 @@ import axios from "axios";
 import { useState,useEffect } from "react";
 import useCustomForm from "../../../hooks/useCustomForm";
 import Input from "../../Util/Input/Input";
+import "./ProductForm.css"
 
 const ProductForm = ({product,addItem,closeModal,products}) => {
     const [options,setOptions] = useState([]);
     const [filteredOptions, setfilteredOptions] = useState({});
     const quantity = [{description:12},{description:24},{description:36},{description:48},{description:60}]
+    const [warning, setwarning] = useState('small-warning');
+    let designDefault = 'Add Theme and Design Details (Colors, Theme...) Here as Well as Any Special Instructions for Lisa'
   
     const item = {
         product:product,
         order_id: 0,
         quantity: 1,
-        design_details: "Add Theme and Design Details (Colors, Theme...) Here as Well as Any Special Instructions for Lisa",
+        design_details: designDefault,
         cake_flavor: "NA",
         frosting: "NA",
         filling: "NA",
+        size: "NA"
+        
     }
     
-    const createItem = (formData) => {
-        if (product.type === "Cakes"){
-            let newproduct = products.filter(p => p.description === formData.size && p.name.includes(product.name));
-            console.log(newproduct[0]);
-            formData.product = newproduct[0];
-        }
-        addItem(formData)
-        closeModal();
+    const checkForm = (formData) => {
+        if (
+            formData.quantity == 1 && formData.product.pricebydozen === true
+            || formData.design_details === designDefault
+            || formData.size === "NA" && formData.product.type === "Cakes"
+        )
+        { return false}
+        else {return true}
     }
+
+
+    const createItem = (formData) => {
+        if(checkForm(formData)) {
+            if (product.type === "Cakes"){
+                let newproduct = products.filter(p => p.description === formData.size && p.name.includes(product.name));
+                console.log(newproduct[0]);
+                formData.product = newproduct[0];
+            }
+            addItem(formData)
+            closeModal();
+        }
+        else {
+            setwarning('large-warning')
+        }
+    }
+    
+    
+    
+    
     const [formData, handleInputChange,handleSubmit] = useCustomForm(item,createItem);
 
     useEffect(()=>{
@@ -81,6 +106,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                  onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
+            <div className={warning}> Please Be Sure To Fill Out Entire Form</div>
         </div> 
      ) : options.length && product.type === "Cupcakes"  && product.name != "Lisa's Specialty Cupcake"?(
         <div className="no-wrap-container">
@@ -97,6 +123,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                     onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
+            <div className={warning}> Please Be Sure To Fill Out Entire Form</div>
         </div> 
      ):options.length && product.type === "Cupcakes" ? (
         <div className="no-wrap-container">
@@ -111,6 +138,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
             </form>
+            <div className={warning}> Please Be Sure To Fill Out Entire Form</div>
         </div> 
     ): options.length  && product.pricebydozen ? (
         <div className="no-wrap-container">
@@ -122,6 +150,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 <Input title = "Details: " name ="design_details" value = {formData.design_details}
                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
+                <div className={warning}> Please Be Sure To Fill Out Entire Form</div>
             </form>
         </div> 
     ): options.length ? (
@@ -134,6 +163,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                 <Input title = "Details: " name ="design_details"value = {formData.design_details}
                 onChange = {handleInputChange} textArea = {true}/>
                 <button type="submit">ADD</button>
+                <div className={warning}> Please Be Sure To Fill Out Entire Form</div>
             </form>
         </div> ):null;
 }

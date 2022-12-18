@@ -11,6 +11,15 @@ import ProductSection from "../../components/HomeComponents/ProductSection/Produ
 import cake1 from "../../Images/cake1.jpeg";
 import cake2 from "../../Images/cake2.jpeg";
 import cake3 from "../../Images/cake3.jpeg";
+import cupcake1 from "../../Images/cupcake1.jpeg";
+import cupcake2 from "../../Images/cupcake2.jpeg";
+import cupcake3 from "../../Images/cupcake3.jpeg";
+import cookie1 from "../../Images/cookie1.jpeg";
+import cookie2 from "../../Images/cookie2.jpeg";
+import cookie3 from "../../Images/cookie3.jpeg";
+import goodie1 from "../../Images/goodie1.jpeg";
+import goodie2 from "../../Images/goodie2.jpeg";
+import goodie3 from "../../Images/goodie3.jpeg";
 
 const HomePage = () => {
   
@@ -21,6 +30,9 @@ const HomePage = () => {
   const [cookieProducts,setCookieProducts] = useState([]);
   const [goodieProducts,setGoodieProducts] = useState([]);
   const [cakeImages] = useState([cake1,cake2,cake3])
+  const [cupcakeImages] = useState([cupcake1,cupcake2,cupcake3])
+  const [cookieImages] = useState([cookie1,cookie2,cookie3])
+  const [goodieImages] = useState([goodie1,goodie2,goodie3])
   //  REFS
   const cookieRef = useRef();
   const cakeRef = useRef();
@@ -57,9 +69,9 @@ const HomePage = () => {
     <LandingSection cookieRef={cookieRef} cakeRef = {cakeRef} cupcakeRef = {cupcakeRef} goodiesRef = {goodiesRef}/>
     <ImageBar/>
     <ProductSection thisref = {cakeRef} productData = {cakeProducts} images = {cakeImages} />
-    <ProductSection thisref = {cupcakeRef} productData = {cupcakeProducts} images = {cakeImages} />
-    <ProductSection thisref = {cookieRef} productData = {cookieProducts} images = {cakeImages} />
-    <ProductSection thisref = {goodiesRef} productData = {goodieProducts} images = {cakeImages} />
+    <ProductSection thisref = {cupcakeRef} productData = {cupcakeProducts} images = {cupcakeImages} />
+    <ProductSection thisref = {cookieRef} productData = {cookieProducts} images = {cookieImages} />
+    <ProductSection thisref = {goodiesRef} productData = {goodieProducts} images = {goodieImages} />
     </>
     );
 };

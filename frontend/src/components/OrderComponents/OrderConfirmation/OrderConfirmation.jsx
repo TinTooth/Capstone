@@ -55,7 +55,8 @@ const OrderConfirmation = ({order,items, close}) => {
                 <div>
                     Write down the Order Number for future reference!
                 </div>
-                <button onClick={close}>Close</button>
+                <button onClick={()=> window.location.reload(false)}>New Order</button>
+                <button onClick={()=> window.location.href = 'https://www.instagram.com/blue_fox_bakery/?hl=en'}>Instagram</button>
             </div>
         
         </div>

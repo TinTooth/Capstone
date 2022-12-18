@@ -33,7 +33,6 @@ const ManagePage = () => {
 
     async function getItems() {
         let response = await axios.get('http://127.0.0.1:8000/api/order/1/items/all',config)
-        console.log(response.data)
         setitems(response.data)
     }
 
@@ -46,7 +45,7 @@ const ManagePage = () => {
         <div className="page-container">
         {items ?(<WorkTimeCounter selectedDate={selectedDate} items = {items}/>):null}
         <WorkCalendar orders = {orders} setcurrentOrder = {setcurrentOrder} setSelectedDate = {setselectedDate}/>
-        <ManageOrdersLists orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
+        <ManageOrdersLists selectedDate={selectedDate} orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
         <Manager currentOrder={currentOrder} getOrders = {getOrders} orders = {orders}/>
         </div>
         </>

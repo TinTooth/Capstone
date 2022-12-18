@@ -3,6 +3,7 @@
     flex-wrap: nowrap;
     flex-direction: row;
     width: 100%;
+    /* margin-bottom: 4%; */
 }
 
 .image-container {

@@ -28,17 +28,18 @@ const LandingSection = ({cookieRef, cakeRef, cupcakeRef, goodiesRef}) => {
                 <button onClick = {handleSectionClick} name = 'cupcakes'>Cupcakes</button>
                 <button onClick = {handleSectionClick} name = 'cookies'>Cookies</button>
                 <button onClick = {handleSectionClick} name = 'goodies'>Other Goodies</button>
+                <button onClick={()=> window.location.href = 'https://www.instagram.com/blue_fox_bakery/?hl=en'}>Instagram</button>
                 <button onClick={handleOrderClick}>Order</button>
             </div>
             <div className="title-container">
-                <div className="heading1 font1">Blue Fox</div>
-                <div className="heading2 font1">Bakery</div>
+                <div className="heading1 font1 lob2">Blue Fox</div>
+                <div className="heading2 font1 lob2">Bakery</div>
                 <div className="subhead">
                     A Home Bakery in Fox Point Wisconsin
                 </div>
-                <div className="subhead"> Started by Lisa in 2017, she has been sweeting up events since!</div>
+                <div className="subhead"> Started by Lisa in 2017, she has been sweetening up events since!</div>
             </div>
-            <div className="footer font1"> See Lisa's Creations Below</div>
+            <div className="footer font1 lob2"> See Lisa's Creations Below</div>
         </div>
       );
 }

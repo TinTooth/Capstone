@@ -1,6 +1,9 @@
 import "./input.css"
+
 const Input = ({type = "text",name,value,onChange,title, textArea = false, 
                                 select = false, options}) => {
+        
+   
 
     return textArea ? ( 
         <>
@@ -12,6 +15,7 @@ const Input = ({type = "text",name,value,onChange,title, textArea = false,
          name = {name}
          value = {value}
          onChange = {onChange} 
+
          />
          </>
      ): select ? (

@@ -21,6 +21,8 @@ const OrderForm = ({setItems, items}) => {
     const [orderConfirmModal, setorderConfirmModal] = useState(false);
     const config = useConfig();
     const [getPrice, getWorkTime] = useCalc();
+    const [warningModal, setwarningModal] = useState(false);
+    const [warningMessage, setwarningMessage] = useState("");
     let order = {
         user:1,
         deliver_date: "",
@@ -72,18 +74,28 @@ const OrderForm = ({setItems, items}) => {
         });
         return result
     }
-
-
     const addItem = (item) => {
         let newitems = [...items,item];
         setItems(newitems);
     }
 
-    const createOrder= () => {
-        postOrder();
-        setitemConfirmModal(true);
 
+
+    const createOrder= () => {
+        if (formData.deliver_date === order.deliver_date ){
+            setwarningMessage("Please Choose A Deliver Date")
+            setwarningModal(true);
+        }
+        else if ( items.length < 1) {
+            setwarningMessage("Please Add at Least 1 Item to the Order")
+            setwarningModal(true);
+        }
+        else {
+            postOrder();
+            setitemConfirmModal(true);
+        }
     }
+
 
     const prepItem = (item) => {
         let result = {
@@ -117,6 +129,7 @@ const OrderForm = ({setItems, items}) => {
 
     const closeConfirmWindow = () => {
         setorderConfirmModal(false);
+        window.location.reload(false);
     }
 
     const [formData, handleInputChange,handleSubmit] = useCustomForm(order,createOrder)
@@ -142,6 +155,7 @@ const OrderForm = ({setItems, items}) => {
             </Modal>
 
             <Modal title = "Order Recieved!" modal = {orderConfirmModal} onClose ={closeConfirmWindow}> <OrderConfirmation items = {items} order = {currentOrder} close = {closeConfirmWindow}/></Modal>
+            <Modal title = "Invalid Form" modal = {warningModal} onClose ={()=> setwarningModal(false)}>{warningMessage} <button onClick = {()=>setwarningModal(false)}>Close</button></Modal>
         </div>
      );
 }
