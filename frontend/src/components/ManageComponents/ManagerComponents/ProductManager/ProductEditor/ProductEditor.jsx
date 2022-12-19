@@ -26,6 +26,7 @@ const ProductEditor = ({product,getProducts}) => {
 
     return (  
         <div className="product-editor">
+            <div className='editor-title'>Product Editor</div>
             <form onSubmit={handleSubmit}>
                 <Input title='Name' name = 'name' value = {formData.name} onChange = {handleInputChange}/>
                 <Input title='Price' name = 'price' value = {formData.price} onChange = {handleInputChange}/>

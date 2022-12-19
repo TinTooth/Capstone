@@ -19,10 +19,10 @@ const WorkTimeCounter = ({selectedDate,items}) => {
 
     return (
         <div className="worktime-container">
-            <div className="selected-date">Week Of {selectedDate.slice(5)}</div>
-            <div className="selected-date">Total Time :{totalTime}</div>
-            <div className="selected-date">Weeks Current: AutoMated Message:</div>
-            <div className="selected-date">{weekMessage}</div>
+            <div className="week">Week Of {selectedDate.slice(5)}</div>
+            <div className="selected-date">Total Time: {totalTime}</div>
+            <div className="selected-date">Current Message:</div>
+            <div className="selected-date p2">{weekMessage}</div>
         </div>
      );
 }

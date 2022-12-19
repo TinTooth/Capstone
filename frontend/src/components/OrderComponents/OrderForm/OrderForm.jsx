@@ -9,11 +9,11 @@ import useConfig from "../../../hooks/useConfig";
 import ItemList from "../ItemsList/ItemList";
 import useCalc from "../../../hooks/useCalc"
 import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
-import { useNavigate} from "react-router-dom";
-
+import useAuth from "../../../hooks/useAuth";
 
 
 const OrderForm = ({setItems, items}) => {
+    const [user] = useAuth();
     const [products,setProducts] = useState([]);
     const [currentOrder,setcurrentOrder] = useState([]);
     const [options,setOptions] = useState([]);
@@ -79,10 +79,12 @@ const OrderForm = ({setItems, items}) => {
         setItems(newitems);
     }
 
-
-
     const createOrder= () => {
-        if (formData.deliver_date === order.deliver_date ){
+        if (!user) {
+            setwarningMessage("Please Login to Place an Order")
+            setwarningModal(true);
+        }
+        else if (formData.deliver_date === order.deliver_date ){
             setwarningMessage("Please Choose A Deliver Date")
             setwarningModal(true);
         }

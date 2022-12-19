@@ -11,24 +11,21 @@ li {
 
 .navBar {
   background: #3C4F6D;
-  /* box-shadow: 4px 2px 5px gray; */
   color: white;
-  /* margin-bottom: 2rem; */
   padding: 1.5rem 2rem;
   height: 10vh;
 }
 
 .navBar button {
   background: #2b3547;
-  /* border: 1px solid #C37F90; */
+ 
   color: white;
   padding: 0.4rem 0.5rem;
-  /* margin-right: 5%; */
 }
 
 .navBar button:hover {
-  background: white;
-  color: steelblue;
+
+  background-color: steelblue;
   cursor: pointer;
 }
 

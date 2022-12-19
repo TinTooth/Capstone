@@ -22,7 +22,6 @@ const Navbar = () => {
             null
           )}
           {user ? (
-            // <button onClick={console.log(user)}>Logout</button>
             <button onClick={logoutUser}>Logout</button>
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>

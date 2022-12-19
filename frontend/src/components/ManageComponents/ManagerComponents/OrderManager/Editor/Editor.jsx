@@ -80,7 +80,6 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
             <Input title = 'Filling:' name = 'filling' value = {formData.filling} onChange = {handleInputChange}/>
             <Input textArea = {true} title = 'Design:' name = 'design_details' value = {formData.design_details} onChange = {handleInputChange}/>
             <div className="button-row">
-
             <button type = 'submit'>Save Changes</button>
             </div>
         </form> 
@@ -91,6 +90,7 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
         <div className="editor-container">
         <div className="editor-title">Order Editor</div>
             <form onSubmit = {handleSubmit2}>
+            <div className="email">Customer Email: {order.user.email}</div>
             <Input type = "date" title = 'Deliver Date:' name = 'deliver_date' value = {formData2.deliver_date} onChange = {handleInputChange2}/>
             <Input title = 'Total Work Time:' name = 'total_work_time' value = {formData2.total_work_time} onChange = {handleInputChange2}/>
             <Input title = 'Price Adjustment:' name = 'adjusted_price' value = {formData2.adjusted_price} onChange = {handleInputChange2}/>
@@ -101,7 +101,7 @@ const Editor = ({item, getItems, order, items,editorShow, getOrders}) => {
         </form> 
             {/* <button className="warning" onClick ={deleteOrder}>DELETE</button> */}
         </div>
-    ): <div>Please Select an Order</div>;
+    ): <div className="select-message">Please Select an Order</div>;
 }
  
 export default Editor;

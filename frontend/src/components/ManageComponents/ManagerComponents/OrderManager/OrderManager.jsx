@@ -29,7 +29,7 @@ const OrderManager = ({show, currentOrder, getOrders}) => {
     }
 
 
-    return show ?( 
+    return show ? ( 
         <div className="manager container-no-wrap">
             <div className="items-container">
                 <ItemList items = {orderItems} noDetails = {true} noRemove = {true} setcurrentItem = {setcurrentItem}/>
@@ -40,9 +40,9 @@ const OrderManager = ({show, currentOrder, getOrders}) => {
             </div>
             <div className="order-container">
                 <div className="order">
-                { currentOrder.id != 0 ? (<div className="order-detail"> Order # {currentOrder.id}</div>):null}
-                { currentOrder.id != 0 ? (<div className="order-detail"> {currentOrder.user.first_name} {currentOrder.user.last_name}</div>):null}
-                { currentOrder.id != 0 ? (<button onClick = {showOrderEdit}>Details</button>):null}
+                { currentOrder.id !== 0 ? (<div className="order-detail ulp"> Order # {currentOrder.id}</div>): <div className="order-detail"> Order # </div>}
+                { currentOrder.id !== 0 ? (<div className="order-detail"> {currentOrder.user.first_name} {currentOrder.user.last_name}</div>):null}
+                { currentOrder.id !== 0 ? (<button onClick = {showOrderEdit}>Details</button>):null}
                 </div>
             </div>
         </div>

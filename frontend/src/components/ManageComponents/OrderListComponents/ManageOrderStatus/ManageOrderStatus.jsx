@@ -9,7 +9,9 @@ const ManageOrderStatus = ({order,filter,getOrders, setcurrentOrder}) => {
         order.status = e.target.id;
         console.log(order.status)
         const response = await axios.put(`http://127.0.0.1:8000/api/order/${order.id}/`,order,config);
-        getOrders();
+        if (response.status === "200") {
+            getOrders();
+        }
     }
 
     const handleClick = () => {

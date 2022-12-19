@@ -6,7 +6,7 @@ import "./LoginPage.css";
 
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
-  const defaultValues = { username: "", password: "" };
+  const defaultValues = { username: "", password: "" ,is_staff:false};
   const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(
     defaultValues,
     loginUser
@@ -19,7 +19,7 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <div className="container">
+    <div className="container lr">
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:{" "}

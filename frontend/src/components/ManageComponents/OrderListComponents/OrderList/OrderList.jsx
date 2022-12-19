@@ -19,11 +19,11 @@ const OrderList = ({orders, filter, setcurrentOrder, getOrders, selectedDate}) =
   
     return filteredOrders.length ? ( 
         <div className="table">
-            <div className="t-row">
+            <div className="t-row head">
                     <div className="nr-cell"> # </div>
                     <div className="c-cell"> Customer </div>
                     <div className="d-cell"> Date </div>
-                    <div className="b-cell"> {filter} Orders</div>
+                    <div className="b-cell pink"> {filter} Orders</div>
             </div>
             <div className="data">
                 {  filteredOrders.map((o,i) => {
@@ -38,7 +38,7 @@ const OrderList = ({orders, filter, setcurrentOrder, getOrders, selectedDate}) =
         </div>
      ):
      <div className="table">
-                 <div className="t-row">
+                 <div className="t-row head">
                     <div className="n-cell"> # </div>
                     <div className="c-cell"> Customer </div>
                     <div className="d-cell"> Date </div>

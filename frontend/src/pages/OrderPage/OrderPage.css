@@ -1,5 +1,7 @@
 .login-message {
     text-align: center;
+    background-color: #3C4F6D;
+    border: none;
 }
 
 .item-list-container {

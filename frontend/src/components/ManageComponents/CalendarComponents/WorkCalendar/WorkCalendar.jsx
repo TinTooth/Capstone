@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks';
+
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -26,7 +26,6 @@ const WorkCalendar = ({orders,setcurrentOrder,setSelectedDate}) => {
         eventsarray.push(newEvent);
       }});
       
-      
       return eventsarray
   }    
   
@@ -43,7 +42,7 @@ const WorkCalendar = ({orders,setcurrentOrder,setSelectedDate}) => {
          dateClick={(e) => setSelectedDate(e.dateStr)}
          eventClick ={eventClick}
          eventColor = '#2b3547'
-        
+    
       />
       
     </div>

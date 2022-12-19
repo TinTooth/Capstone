@@ -8,6 +8,7 @@ import WorkCalendar from "../../components/ManageComponents/CalendarComponents/W
 import NavBar from "../../components/NavBar/NavBar.jsx"
 import WorkTimeCounter from "../../components/ManageComponents/CalendarComponents/WorkTimeCounter/WorkTimeCounter";
 import "./ManagePage.css"
+import Footer from "../../components/Footer/Footer.jsx"
 
 const ManagePage = () => {
     const config = useConfig();
@@ -18,7 +19,7 @@ const ManagePage = () => {
 
     useEffect (()=> {
         getOrders();
-        // getItems();
+    
     },[]) 
 
     useEffect(()=> {
@@ -36,19 +37,19 @@ const ManagePage = () => {
         setitems(response.data)
     }
 
-    const test = () => {console.log(orders)}
-
-
     return (
         <>
         <NavBar/>
         <div className="page-container">
-        <div className="manage-row gap">
-        {items ?(<WorkTimeCounter selectedDate={selectedDate} items = {items}/>):null}
-        <WorkCalendar orders = {orders} setcurrentOrder = {setcurrentOrder} setSelectedDate = {setselectedDate}/>
-        <ManageOrdersLists selectedDate={selectedDate} orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
-        </div>
-        <Manager currentOrder={currentOrder} getOrders = {getOrders} orders = {orders}/>
+            <div className="manage-row gap">
+                {items ?(<WorkTimeCounter selectedDate={selectedDate} items = {items}/>):null}
+                <WorkCalendar orders = {orders} setcurrentOrder = {setcurrentOrder} setSelectedDate = {setselectedDate}/>
+                <ManageOrdersLists selectedDate={selectedDate} orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
+            </div>
+            <Manager currentOrder={currentOrder} getOrders = {getOrders} orders = {orders}/>
+            <Footer/>
+            <Footer/>
+            <Footer/>
         </div>
         </>
       );

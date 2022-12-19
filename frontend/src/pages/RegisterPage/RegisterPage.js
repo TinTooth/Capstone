@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
-import Input from "../../components/Util/Input/Input";
 
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
@@ -19,7 +18,7 @@ const RegisterPage = () => {
   );
 
   return (
-    <div className="container">
+    <div className="container lr m">
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
@@ -66,7 +65,7 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <p style={{ fontSize: "12px" }}>
+        <p style={{ fontSize: "2vh" }}>
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
         </p>
