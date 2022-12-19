@@ -4,7 +4,7 @@
     min-height: 53vh;
     max-height: 53vh;
     text-align: center;
-    margin-top: 20%;
+    margin-top: auto;
     border: 6px solid #818181;
     display: flex;
     flex-wrap: wrap;

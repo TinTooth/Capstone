@@ -86,6 +86,10 @@ const OrderForm = ({setItems, items}) => {
             setwarningMessage("Please Choose A Deliver Date")
             setwarningModal(true);
         }
+        else if (formData.notes === order.notes) {
+            setwarningMessage("Please Enter Notes for Lisa")
+            setwarningModal(true);
+        }
         else if ( items.length < 1) {
             setwarningMessage("Please Add at Least 1 Item to the Order")
             setwarningModal(true);
@@ -156,13 +160,24 @@ const OrderForm = ({setItems, items}) => {
                 </div>
             </div>
             <Modal title = "" modal = {itemConfirmModal} onClose = {handleModal}>
-                <div className="message">Please Confirm Items Below</div>
-                <ItemList items = {items} setItems = {setItems}></ItemList>
-                <button onClick = {handleModal}>CANCEL</button>
-                <button onClick = {createItems}>Confirm Items</button> 
+                <div className="item-confirm">
+                    <div className="message">Please Confirm Items Below</div>
+                    <ItemList items = {items} setItems = {setItems}></ItemList>
+                    <div className="button-row">
+                        <button onClick = {handleModal}>CANCEL</button>
+                        <button onClick = {createItems}>Confirm Order</button> 
+                    </div>
+                </div>
             </Modal>
             <Modal title = "Order Recieved!" modal = {orderConfirmModal} onClose ={closeConfirmWindow}> <OrderConfirmation items = {items} order = {currentOrder} close = {closeConfirmWindow}/></Modal>
-            <Modal title = "Invalid Form" modal = {warningModal} onClose ={()=> setwarningModal(false)}>{warningMessage} <button onClick = {()=>setwarningModal(false)}>Close</button></Modal>
+            <Modal title = "Invalid Order" modal = {warningModal} onClose ={()=> setwarningModal(false)}>
+                 
+                 <div className="message">{warningMessage}</div> 
+                 <div className="message-row">
+                 <button onClick = {()=>setwarningModal(false)}>Close</button>
+                 </div>
+                 
+                 </Modal>
         </div>
      );
 }

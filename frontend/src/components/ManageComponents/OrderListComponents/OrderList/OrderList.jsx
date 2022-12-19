@@ -20,7 +20,7 @@ const OrderList = ({orders, filter, setcurrentOrder, getOrders, selectedDate}) =
     return filteredOrders.length ? ( 
         <div className="table">
             <div className="t-row">
-                    <div className="n-cell"> # </div>
+                    <div className="nr-cell"> # </div>
                     <div className="c-cell"> Customer </div>
                     <div className="d-cell"> Date </div>
                     <div className="b-cell"> {filter} Orders</div>
@@ -38,7 +38,13 @@ const OrderList = ({orders, filter, setcurrentOrder, getOrders, selectedDate}) =
         </div>
      ):
      <div className="table">
-           <div>No {filter} Orders for {getMonth(selectedDate)}</div>
+                 <div className="t-row">
+                    <div className="n-cell"> # </div>
+                    <div className="c-cell"> Customer </div>
+                    <div className="d-cell"> Date </div>
+                    <div className="b-cell"> {filter} Orders</div>
+            </div>
+           <div className="no-data">No {filter} Orders for {getMonth(selectedDate)}</div>
         </div> ;
 }
  

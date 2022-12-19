@@ -109,13 +109,13 @@ const useDate = () => {
   const getLikelihood = (totalHours) => {
     let result = '';
     if (totalHours < 15) {
-      result = 'Lisa Will Likey Be Able to Fullfill this Order! Either Way, she will reach out soon to let you know';
+      result = 'Lisa Will Likey Be Able to Fullfill this Order! ';
     }
     else if (totalHours > 15 && totalHours < 25) {
-      result = 'Pretty Busy Week for Lisa! She may not be able to accept this Order. Either Way, she will reach out soon to let you know';
+      result = 'Pretty Busy Week for Lisa! She may not be able to accept this Order. ';
     }
     else if (totalHours > 25) {
-      result = 'That is an Extremely busy week for Lisa. It is Highly Unlikely She will be able to accept your order. Either Way, she will reach out soon to let you know';
+      result = 'That is an Extremely busy week for Lisa. It is Highly Unlikely She will be able to accept your order. ';
     }
   
 

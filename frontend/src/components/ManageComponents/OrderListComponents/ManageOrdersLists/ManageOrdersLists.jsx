@@ -7,7 +7,7 @@ const ManageOrderLists = ({orders,getOrders,setcurrentOrder,selectedDate}) => {
     
     return orders ? ( 
         <div className="order-lists">
-            <div>Showing Orders For {getMonth(selectedDate)} </div>
+            <div className="list-title">Showing Orders For {getMonth(selectedDate)} </div>
             <div className="lists-container pad">
                 <OrderList orders = {orders} filter = "Accepted" selectedDate={selectedDate}
                     setcurrentOrder = {setcurrentOrder} getOrders ={getOrders}  />

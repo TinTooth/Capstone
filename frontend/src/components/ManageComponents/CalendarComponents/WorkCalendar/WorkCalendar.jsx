@@ -42,6 +42,7 @@ const WorkCalendar = ({orders,setcurrentOrder,setSelectedDate}) => {
          events = {getEvents()}
          dateClick={(e) => setSelectedDate(e.dateStr)}
          eventClick ={eventClick}
+         eventColor = '#2b3547'
         
       />
       

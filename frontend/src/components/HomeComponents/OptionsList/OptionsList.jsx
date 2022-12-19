@@ -12,13 +12,13 @@ const OptionsList = ({type,options}) => {
             <div className="cake-size-container">
                 <div className="row">
                     <div className="size h">Cake Size</div>
-                    <div className="servings h">Servings</div>
+                    <div className="servings h">Serves</div>
                 </div>
                     {options.map((o,i)=>{
                         return o.type === "Cake Size" ? ( 
                             <div className = 'row' key = {i}>
                                 <div className="size">{o.description}</div>
-                                <div className="servings">{o.serves} people</div>
+                                <div className="servings">{o.serves}</div>
                             </div>
                         ):null
                     })}

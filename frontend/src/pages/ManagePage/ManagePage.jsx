@@ -7,7 +7,7 @@ import "./ManagePage.css"
 import WorkCalendar from "../../components/ManageComponents/CalendarComponents/WorkCalendar/WorkCalendar";
 import NavBar from "../../components/NavBar/NavBar.jsx"
 import WorkTimeCounter from "../../components/ManageComponents/CalendarComponents/WorkTimeCounter/WorkTimeCounter";
-
+import "./ManagePage.css"
 
 const ManagePage = () => {
     const config = useConfig();
@@ -43,9 +43,11 @@ const ManagePage = () => {
         <>
         <NavBar/>
         <div className="page-container">
+        <div className="manage-row gap">
         {items ?(<WorkTimeCounter selectedDate={selectedDate} items = {items}/>):null}
         <WorkCalendar orders = {orders} setcurrentOrder = {setcurrentOrder} setSelectedDate = {setselectedDate}/>
         <ManageOrdersLists selectedDate={selectedDate} orders = {orders} getOrders = {getOrders} setcurrentOrder = {setcurrentOrder}/>
+        </div>
         <Manager currentOrder={currentOrder} getOrders = {getOrders} orders = {orders}/>
         </div>
         </>

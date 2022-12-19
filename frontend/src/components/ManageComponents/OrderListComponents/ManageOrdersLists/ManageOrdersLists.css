@@ -2,13 +2,15 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    flex-direction: column;
     
 }
 
 .lists-container {
     display: flex;
-    flex-wrap: nowrap;
-    width: 65%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 22vw;
     background-color: rgb(108, 104, 104);
 }
 
@@ -35,10 +37,23 @@
     cursor: pointer;
    
 }
+.nr-cell {
+    width: 10%;
+    cursor: pointer;
+   
+}
+
+.list-title {
+    color: aliceblue;
+    text-align: center;
+    padding: 4%;
+    font-size: larger;
+}
 
 .n-cell:hover {
     background-color: aqua;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    padding: 2%;
 }
 
 .c-cell {
@@ -56,8 +71,8 @@
 
 
 .table {
-    width: 33%;
-    font-size: .75vw;
+    width: 100%;
+    font-size: .65vw;
 }
 
 .table-name{
@@ -66,11 +81,21 @@
 }
 
 .data {
-    height: 25vh;
+    height: 15vh;
     background-color: aliceblue;
     overflow-y: scroll;
 }
 
+.no-data {
+    height: 15vh;
+    background-color: aliceblue;
+    /* border: 2px solid black; */
+    padding-top: 15%;
+}
+
 .data button {
     padding: .25vh;
+    font-size: .65vw;
+    text-align: center;
+    
 }

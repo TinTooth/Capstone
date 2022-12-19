@@ -1,6 +1,34 @@
 .calendar {
-    margin: auto;
-    width: 65vw;
-    height: 40vh;
+    /* margin: auto; */
+    width: 45vw;
+    height: 55vh;
     margin-bottom: 1%;
+    /* border: 3px solid gray; */
+    padding: 2%;
+    background-color: #354157;
+    color: aliceblue;
+}
+
+.fc-day{
+    background: #3C4F6D!important;
+    /* border: none !important; */
+    color: aliceblue;
+    border: 1px solid #2b3547!important;
+  
+} 
+.fc-day-today {
+    background: #C37F90!important;
+    /* border: none !important; */
+  
+} 
+
+.fc-button {
+    background-color: #C37F90!important;
+    color: black!important;
+    border: none!important;
+}
+
+.fc-button:focus {
+    box-shadow: none!important;
+    background-color: #AC4059!important;
 }
