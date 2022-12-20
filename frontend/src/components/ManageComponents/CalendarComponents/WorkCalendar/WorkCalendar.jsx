@@ -20,7 +20,7 @@ const WorkCalendar = ({orders,setcurrentOrder,setSelectedDate}) => {
       if (order.status === "Accepted") {
         let newEvent = { 
           id: order.id, 
-          title:`${order.user.first_name} ${order.user.last_name}`,
+          title:`# ${order.id} ${order.user.last_name}`,
           start: order.deliver_date
         }
         eventsarray.push(newEvent);

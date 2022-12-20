@@ -92,15 +92,18 @@ const useDate = () => {
     let daysBehind = 6-daysAhead
     let acceptedOrders = items.filter(item => item.order.status === "Accepted")
     let itemsInRange = []
-    let iDate = new Date();
     for (let i = 0; i <=daysAhead; i++) {
-        iDate.setDate(date.getDate() + i)
-        let itemsinDay = acceptedOrders.filter(item => item.order.deliver_date == iDate.toJSON().slice(0,10))
+        let date = new Date(`${input}T00:00:00`)
+        date.setDate(date.getDate() + i)
+        console.log(date)
+        let itemsinDay = acceptedOrders.filter(item => item.order.deliver_date == date.toJSON().slice(0,10))
+        console.log(itemsinDay)
         itemsInRange = [...itemsInRange,...itemsinDay]
     }
     for (let i = 1; i <= daysBehind; i++) {
-      iDate.setDate(date.getDate() - i)
-      let itemsinDay = acceptedOrders.filter(item => item.order.deliver_date == iDate.toJSON().slice(0,10))
+      let date = new Date(`${input}T00:00:00`)
+      date.setDate(date.getDate() - i)
+      let itemsinDay = acceptedOrders.filter(item => item.order.deliver_date == date.toJSON().slice(0,10))
       itemsInRange = [...itemsInRange,...itemsinDay]
     }
     return getWorkTime(itemsInRange);
