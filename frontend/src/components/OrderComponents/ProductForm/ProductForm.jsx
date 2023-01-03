@@ -121,7 +121,7 @@ const ProductForm = ({product,addItem,closeModal,products}) => {
                     </div>
             </form>
         </div> 
-     ) : options.length && product.type === "Cupcakes"  && product.name != "Lisa's Specialty Cupcake"?(
+     ) : options.length && product.type === "Cupcakes"  && product.name != "Specialty Cupcakes"?(
         <div className="product-form-container">
             <div className="pric">${product.price} Per Dozen </div>
             <div className="descrip">{product.description}</div>
