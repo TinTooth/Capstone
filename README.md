@@ -1,4 +1,6 @@
-• 10 day sprint to create a business solution app of my choice. 
+ https://www.youtube.com/watch?v=Gcup8Jr9zaw&t=7s - presentation of project
+
+•10 day sprint to create a business solution app of my choice. 
 • An order placement and order manager application for a small home bakery. 
 • Technologies: JavaScript, React.js, HTML, CSS, Python, Django REST Framework, MySQL, JSON Web Token, FullCalendar
 
